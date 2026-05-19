@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\Websites\\\\Amangwane\" -Force)",
+      "Bash(Select-Object Name, FullName)",
+      "PowerShell(Get-ChildItem \"c:\\\\Websites\\\\Amangwane\" | ForEach-Object { $_.Name })",
+      "Bash(node -e ' *)",
+      "Bash(Get-ChildItem \"c:\\\\Websites\\\\Amangwane\\\\images\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object Name, LastWriteTime)"
+    ]
+  }
+}

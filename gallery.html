@@ -1,0 +1,864 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- ═══ GOOGLE ANALYTICS 4 ═══ -->
+  <!-- Account: Amangwane (385957384) | Property: Amangwane Tented Camp Kosi Mouth (526493660) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-526493660"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-526493660', {
+      'page_title': document.title,
+      'page_location': window.location.href,
+      'send_page_view': true
+    });
+
+    // Track Book Now button clicks as conversions
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href*="InnStyle"], [onclick*="InnStyle"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          gtag('event', 'book_now_click', {
+            'event_category': 'Booking',
+            'event_label': 'InnStyle Calendar Opened',
+            'value': 1
+          });
+        });
+      });
+
+      // Track WhatsApp clicks
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          gtag('event', 'whatsapp_click', {
+            'event_category': 'Contact',
+            'event_label': 'WhatsApp',
+            'value': 1
+          });
+        });
+      });
+
+      // Track email clicks
+      document.querySelectorAll('a[href^="mailto"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          gtag('event', 'email_click', {
+            'event_category': 'Contact',
+            'event_label': el.href,
+            'value': 1
+          });
+        });
+      });
+
+      // Track phone clicks
+      document.querySelectorAll('a[href^="tel"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          gtag('event', 'phone_click', {
+            'event_category': 'Contact',
+            'event_label': el.href,
+            'value': 1
+          });
+        });
+      });
+    });
+  </script>
+  <!-- ═══ END GOOGLE ANALYTICS ═══ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery | Amangwane Tented Camp — Kosi Bay Mouth</title>
+<meta name="description" content="Real photos of Amangwane Tented Camp at Kosi Bay Mouth — tented units, communal facilities, activities and the stunning iSimangaliso Wetland Park.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script id="InnStyle-js" src="https://developer.innstyle.co.uk/calendar.min.js"></script>
+<script>InnStyle('amangwanetentedcamp');</script>
+<style>
+:root{
+  --sun:#F5C518;--sun-dark:#C8980A;--sun-pale:#FEF9E7;
+  --ocean:#1A8CB5;--ocean-dark:#0F6A8A;--ocean-pale:#E8F5FB;
+  --forest:#2A6E2A;--forest-dark:#1A4A1A;
+  --charcoal:#1C1C2A;--charcoal-mid:#2A2A3A;
+  --sand:#E8D5A0;--off-white:#F7F3EA;--white:#FFFEF8;
+  --text:#1C1C2A;--text-mid:#3A3A4A;--text-light:#6A6A7A;
+  --border:rgba(28,28,42,0.1);
+  --display:'Fraunces',Georgia,serif;--body:'DM Sans',sans-serif;--r:6px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--white);color:var(--text);font-size:16px;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--charcoal);box-shadow:0 2px 30px rgba(0,0,0,.4)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.9rem 2rem;max-width:1180px;margin:0 auto}
+.nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-logo-img{width:54px;height:54px;border-radius:50%;object-fit:cover;padding:3px;border:2px solid var(--sun);background:white}
+.nav-name{font-family:var(--display);font-size:1.05rem;font-weight:700;color:var(--white);display:block;line-height:1.1}
+.nav-sub{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);display:block}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);transition:color .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--sun)}
+.nav-cta{background:var(--sun)!important;color:var(--charcoal)!important;padding:.45rem 1.2rem;border-radius:20px;font-weight:700!important}
+.nav-cta:hover{background:var(--sun-dark)!important}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.burger span{width:22px;height:2px;background:var(--white);border-radius:2px;display:block}
+.mnav{display:none;position:fixed;inset:0;background:var(--charcoal);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:1.75rem}
+.mnav.open{display:flex}
+.mnav a{font-family:var(--display);font-size:2rem;font-weight:700;color:var(--white);font-style:italic;transition:color .3s}
+.mnav a:hover{color:var(--sun)}
+.mnav-close{position:absolute;top:1.5rem;right:1.75rem;font-size:1.75rem;color:rgba(255,255,255,.4);cursor:pointer;background:none;border:none;transition:color .3s;line-height:1}
+.mnav-book{background:var(--sun)!important;color:var(--charcoal)!important;padding:.75rem 2.5rem;border-radius:30px;font-family:var(--body)!important;font-size:.8rem!important;font-style:normal!important;font-weight:700}
+
+/* BUTTONS */
+.btn{display:inline-block;padding:.85rem 2rem;font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;border-radius:30px;transition:all .3s;border:none;cursor:pointer;font-family:var(--body)}
+.btn-sun{background:var(--sun);color:var(--charcoal)}
+.btn-sun:hover{background:var(--sun-dark);transform:translateY(-2px);box-shadow:0 6px 24px rgba(245,197,24,.5)}
+.btn-ghost{border:2px solid rgba(255,255,255,.5);color:var(--white);background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:var(--white)}
+.btn-lg{padding:1.1rem 2.8rem;font-size:.78rem}
+
+/* PAGE HERO */
+.page-hero{
+  padding:9rem 2rem 5rem;
+  background:var(--charcoal);
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+.ph-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:.3}
+.ph-content{position:relative;z-index:2;max-width:660px;margin:0 auto;animation:fadeUp .8s ease both}
+.ph-tag{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sun);font-weight:600;margin-bottom:1rem}
+.ph-h1{font-family:var(--display);font-size:clamp(2.3rem,5vw,3.8rem);font-weight:700;color:var(--white);line-height:1.08;margin-bottom:.85rem}
+.ph-h1 em{font-style:italic;font-weight:400;color:var(--sand)}
+.ph-p{color:rgba(255,255,255,.7);font-size:1rem;max-width:440px;margin:0 auto}
+
+/* FILTER TABS */
+.filter-bar{background:var(--off-white);border-bottom:1px solid var(--border);padding:1.25rem 2rem;position:sticky;top:62px;z-index:100}
+.filter-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.filter-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-light);font-weight:700;margin-right:.5rem}
+.ftab{padding:.45rem 1.1rem;border-radius:20px;border:1.5px solid var(--border);background:var(--white);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:var(--text-mid);font-family:var(--body);transition:all .25s}
+.ftab:hover{border-color:var(--sun);color:var(--charcoal)}
+.ftab.active{background:var(--sun);border-color:var(--sun);color:var(--charcoal)}
+.filter-count{font-size:.72rem;color:var(--text-light);margin-left:auto;font-weight:500}
+
+/* GALLERY GRID */
+.gallery-section{padding:2.5rem 2rem 5rem}
+.gallery-inner{max-width:1180px;margin:0 auto}
+.gal-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:240px;
+  gap:10px;
+}
+.g-item{
+  overflow:hidden;
+  border-radius:10px;
+  cursor:pointer;
+  position:relative;
+  background:var(--off-white);
+}
+.g-item.wide{grid-column:span 2}
+.g-item.tall{grid-row:span 2}
+.g-item img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .55s ease;
+}
+.g-item:hover img{transform:scale(1.06)}
+.g-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(28,28,42,.75) 0%,rgba(28,28,42,.1) 45%,transparent 70%);
+  opacity:0;
+  transition:opacity .3s;
+  display:flex;align-items:flex-end;
+  padding:1.1rem;
+}
+.g-item:hover .g-overlay{opacity:1}
+.g-caption{color:var(--white);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
+.g-zoom-icon{position:absolute;top:.85rem;right:.85rem;width:32px;height:32px;background:rgba(245,197,24,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;opacity:0;transition:opacity .3s;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.g-item:hover .g-zoom-icon{opacity:1}
+
+/* hidden items for filter */
+.g-item.hidden{display:none}
+
+/* LIGHTBOX */
+.lb{display:none;position:fixed;inset:0;background:rgba(10,10,20,.96);z-index:500;align-items:center;justify-content:center;flex-direction:column;padding:1rem}
+.lb.open{display:flex}
+.lb-img-wrap{position:relative;max-width:90vw;max-height:80vh;display:flex;align-items:center;justify-content:center}
+.lb-img{max-width:90vw;max-height:80vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 60px rgba(0,0,0,.6)}
+.lb-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:rgba(255,255,255,.55);cursor:pointer;background:none;border:none;line-height:1;transition:color .3s;z-index:10}
+.lb-close:hover{color:var(--sun)}
+.lb-caption{color:rgba(255,255,255,.6);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-top:1rem;text-align:center}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:var(--white);font-size:1.5rem;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:10}
+.lb-prev{left:1.5rem}
+.lb-next{right:1.5rem}
+.lb-prev:hover,.lb-next:hover{background:var(--sun);color:var(--charcoal)}
+
+/* CTA SECTION */
+.gal-cta{background:var(--charcoal);padding:5rem 2rem;text-align:center}
+.gal-cta h2{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--white);margin-bottom:.75rem}
+.gal-cta h2 em{font-style:italic;font-weight:400;color:var(--sand)}
+.gal-cta p{color:rgba(255,255,255,.6);margin:0 auto 2.5rem;max-width:480px;font-size:.97rem}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem 2rem;border-top:1px solid rgba(255,255,255,.06)}
+.foot-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.foot-logo-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.85rem}
+.foot-logo-img{width:58px;height:58px;border-radius:50%;object-fit:cover;padding:3px;border:2px solid var(--sun);background:white}
+.foot-brand{font-family:var(--display);font-size:1.25rem;font-weight:700;color:var(--white);display:block;line-height:1.2}
+.foot-brand-sub{font-size:.57rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);font-weight:600}
+.foot-desc{font-size:.82rem;line-height:1.65;margin-bottom:1rem}
+.foot-contacts{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+.foot-contacts a{font-size:.8rem;color:rgba(255,255,255,.55);transition:color .3s}
+.foot-contacts a:hover{color:var(--sun)}
+.socials a{width:32px;height:32px;border:1px solid rgba(255,255,255,.15);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;transition:all .3s;color:rgba(255,255,255,.45)}
+.socials a:hover{background:var(--sun);border-color:var(--sun);color:var(--charcoal)}
+.foot-col h4{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sun);margin-bottom:1rem;font-weight:700}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.foot-col ul a{font-size:.82rem;color:rgba(255,255,255,.45);transition:color .3s}
+.foot-col ul a:hover{color:var(--white)}
+.foot-bottom{max-width:1180px;margin:0 auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem;font-size:.73rem}
+.foot-bottom a{color:var(--sun)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.show{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .gal-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:200px}
+  .foot-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}.burger{display:flex}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+  .g-item.wide{grid-column:span 1}
+  .g-item.tall{grid-row:span 1}
+  .filter-bar{top:58px;padding:.85rem 1.25rem}
+  .gallery-section{padding:1.5rem 1rem 4rem}
+  .foot-inner{grid-template-columns:1fr;gap:2rem}
+  .foot-bottom{flex-direction:column;text-align:center}
+  .lb-prev{left:.5rem}.lb-next{right:.5rem}
+}
+</style>
+
+  
+
+  <meta name="keywords" content="Amangwane Tented Camp photos, Kosi Bay photos, Kosi Mouth accommodation photos, iSimangaliso photos">
+  <link rel="canonical" href="https://amangwanecamp.co.za/gallery.html">
+  <meta property="og:title" content="Photo Gallery | Amangwane Tented Camp — Kosi Bay Mouth">
+  <meta property="og:description" content="Real photos of Amangwane Tented Camp at Kosi Bay Mouth — tented units, communal facilities, activities and the stunning iSimangaliso Wetland Park.">
+  <meta property="og:image" content="https://amangwanecamp.co.za/wp-content/uploads/2026/01/img_20251224_125348.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amangwanecamp.co.za/gallery.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Photo Gallery | Amangwane Tented Camp — Kosi Bay Mouth">
+  <meta name="twitter:description" content="Real photos of Amangwane Tented Camp at Kosi Bay Mouth — tented units, communal facilities, activities and the stunning iSimangaliso Wetland Park.">
+  <meta name="twitter:image" content="https://amangwanecamp.co.za/wp-content/uploads/2026/01/img_20251224_125348.jpg">
+  <meta name="robots" content="index, follow">
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Photo Gallery | Amangwane Tented Camp — Kosi Bay Mouth",
+  "description": "Real photos of Amangwane Tented Camp at Kosi Bay Mouth — tented units, communal facilities, activities and the stunning iSimangaliso Wetland Park.",
+  "url": "https://amangwanecamp.co.za/gallery.html",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kosi Bay Mouth",
+    "addressRegion": "KwaZulu-Natal",
+    "addressCountry": "ZA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -26.8919159,
+    "longitude": 32.8547293
+  },
+  "telephone": "+27829093113",
+  "email": "amangwane@kosimouth.co.za",
+  "image": "https://amangwanecamp.co.za/wp-content/uploads/2026/01/img_20251224_125348.jpg",
+  "priceRange": "R",
+  "currenciesAccepted": "ZAR",
+  "paymentAccepted": "Cash, EFT",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61563130553026",
+    "https://www.kosimouth.co.za"
+  ]
+}
+</script>
+  
+  <!-- ═══ GTM ═══ -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MMQ98GGR');</script>
+  <!-- ═══ GA4 ═══ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-526493660"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-526493660',{'send_page_view':true});</script>
+  <!-- ═══ FACEBOOK PIXEL ═══ -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','691106136867109');fbq('track','PageView');</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=691106136867109&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMQ98GGR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- ═══ GOOGLE TAG MANAGER NOSCRIPT ═══ -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMQ98GGR"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- ═══ END GOOGLE TAG MANAGER NOSCRIPT ═══ -->
+
+<div class="mnav" id="mnav">
+  <button class="mnav-close" onclick="closeMnav()">✕</button>
+  <a href="index.html" onclick="closeMnav()">Home</a>
+  <a href="accommodation.html" onclick="closeMnav()">Stay</a>
+  <a href="activities.html" onclick="closeMnav()">Activities</a>
+  <a href="gallery.html" onclick="closeMnav()" class="active">Gallery</a>
+  <a href="blog.html" onclick="closeMnav()">Blog</a>
+  <a href="#" onclick="InnStyle('amangwanetentedcamp');closeMnav();return false;" class="mnav-book">Book Now</a>
+</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img class="nav-logo-img" src="images/gallery/gallery-01.png" alt="Amangwane Tented Camp">
+      <div><span class="nav-name">Amangwane</span><span class="nav-sub">Tented Camp · Kosi Mouth</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="accommodation.html">Stay</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="burger" onclick="openMnav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <button class="lb-prev" onclick="lbNav(-1)">‹</button>
+  <button class="lb-next" onclick="lbNav(1)">›</button>
+  <div class="lb-img-wrap">
+    <img class="lb-img" id="lbImg" src="" alt="">
+  </div>
+  <div class="lb-caption" id="lbCap"></div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <img class="ph-bg" src="images/gallery/gallery-02.jpg" loading="lazy" alt="Sunset over Kosi Bay fish traps">
+  <div class="ph-content">
+    <div class="ph-tag">Amangwane Tented Camp · Kosi Bay Mouth</div>
+    <h1 class="ph-h1">See the <em>Camp & Kosi Bay</em></h1>
+    <p class="ph-p">Real photos — no filters. Tented units, communal spaces, activities and the breathtaking beauty of iSimangaliso.</p>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">Filter:</span>
+    <button class="ftab active" onclick="filterGal('all',this)">All Photos</button>
+    <button class="ftab" onclick="filterGal('camp',this)">The Camp</button>
+    <button class="ftab" onclick="filterGal('rooms',this)">Accommodation</button>
+    <button class="ftab" onclick="filterGal('nature',this)">Kosi Bay</button>
+    <button class="ftab" onclick="filterGal('activities',this)">Activities</button>
+    <span class="filter-count" id="gal-count">27 photos</span>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <div class="gal-grid" id="galGrid">
+      <div class="g-item wide tall" data-cat="nature" data-idx="0" onclick="openLB(0)">
+        <img src="images/gallery/gallery-02.jpg" loading="lazy" alt="Sunset over the Kosi Bay fish traps" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Sunset over the Kosi Bay fish traps</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="nature" data-idx="1" onclick="openLB(1)">
+        <img src="images/gallery/gallery-04.jpg" loading="lazy" alt="Hippo on the Kosi Bay lakes" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Hippo on the Kosi Bay lakes</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="nature" data-idx="2" onclick="openLB(2)">
+        <img src="images/gallery/gallery-05.jpg" loading="lazy" alt="Ancient Thonga fish kraals — 700 years old" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Ancient Thonga fish kraals — 700 years old</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item tall" data-cat="camp" data-idx="3" onclick="openLB(3)">
+        <img src="images/gallery/gallery-06.jpg" loading="lazy" alt="Tent at golden hour under the trees" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Tent at golden hour under the trees</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item wide" data-cat="camp" data-idx="4" onclick="openLB(4)">
+        <img src="images/gallery/gallery-07.jpg" loading="lazy" alt="Open-air dining area with reed thatch ceiling" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Open-air dining area with reed thatch ceiling</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="camp" data-idx="5" onclick="openLB(5)">
+        <img src="images/gallery/gallery-08.jpg" loading="lazy" alt="Camp bar & kitchen area" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Camp bar & kitchen area</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="camp" data-idx="6" onclick="openLB(6)">
+        <img src="images/gallery/gallery-09.jpg" loading="lazy" alt="Braai & boma area under the Waterberry trees" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Braai & boma area under the Waterberry trees</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="rooms" data-idx="7" onclick="openLB(7)">
+        <img src="images/gallery/gallery-10.jpg" loading="lazy" alt="2-sleeper unit with giraffe linen" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">2-sleeper unit with giraffe linen</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item wide" data-cat="rooms" data-idx="8" onclick="openLB(8)">
+        <img src="images/gallery/gallery-11.jpg" loading="lazy" alt="3-sleeper unit — all 3 beds" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">3-sleeper unit — all 3 beds</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="rooms" data-idx="9" onclick="openLB(9)">
+        <img src="images/gallery/gallery-12.jpg" loading="lazy" alt="2-sleeper unit interior" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">2-sleeper unit interior</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="rooms" data-idx="10" onclick="openLB(10)">
+        <img src="images/gallery/gallery-13.jpg" loading="lazy" alt="Family unit with bunk beds" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Family unit with bunk beds</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="rooms" data-idx="11" onclick="openLB(11)">
+        <img src="images/gallery/gallery-14.jpg" loading="lazy" alt="Reed en-suite bathroom" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Reed en-suite bathroom</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="rooms" data-idx="12" onclick="openLB(12)">
+        <img src="images/gallery/gallery-15.jpg" loading="lazy" alt="Tent exterior with private deck" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Tent exterior with private deck</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="camp" data-idx="13" onclick="openLB(13)">
+        <img src="images/gallery/gallery-16.jpg" loading="lazy" alt="Communal kitchen — crockery & equipment" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Communal kitchen — crockery & equipment</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item wide" data-cat="camp" data-idx="14" onclick="openLB(14)">
+        <img src="images/gallery/gallery-17.jpg" loading="lazy" alt="Communal kitchen — full length counter" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Communal kitchen — full length counter</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item wide" data-cat="nature" data-idx="15" onclick="openLB(15)">
+        <img src="images/gallery/gallery-18.jpg" loading="lazy" alt="Kosi Bay Mouth — crystal clear estuary" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Kosi Bay Mouth — crystal clear estuary</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="nature" data-idx="16" onclick="openLB(16)">
+        <img src="images/gallery/gallery-19.jpg" loading="lazy" alt="Kosi Mouth beach at midday" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Kosi Mouth beach at midday</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item wide" data-cat="nature" data-idx="17" onclick="openLB(17)">
+        <img src="images/gallery/gallery-20.jpg" loading="lazy" alt="Climbing the driftwood at Kosi Mouth beach" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Climbing the driftwood at Kosi Mouth beach</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="nature" data-idx="18" onclick="openLB(18)">
+        <img src="images/gallery/gallery-21.jpg" loading="lazy" alt="Child wading into the Kosi estuary" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Child wading into the Kosi estuary</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="camp" data-idx="19" onclick="openLB(19)">
+        <img src="images/gallery/gallery-22.jpg" loading="lazy" alt="Turtle mural at the camp entrance" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Turtle mural at the camp entrance</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="activities" data-idx="20" onclick="openLB(20)">
+        <img src="images/gallery/gallery-23.jpg" loading="lazy" alt="Guided hike through the bushveld with kids" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Guided hike through the bushveld with kids</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item wide" data-cat="activities" data-idx="21" onclick="openLB(21)">
+        <img src="https://amangwanecamp.co.za/wp-content/uploads/2025/06/3-lake-boat-cruise_fish-eagle.jpg" alt="3-Lake Boat Cruise on the lakes" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">3-Lake Boat Cruise on the lakes</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="activities" data-idx="22" onclick="openLB(22)">
+        <img src="https://amangwanecamp.co.za/wp-content/uploads/2025/09/canoe-kids.jpg" alt="Kayak safari on the estuary" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Kayak safari on the estuary</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="activities" data-idx="23" onclick="openLB(23)">
+        <img src="https://amangwanecamp.co.za/wp-content/uploads/2025/10/kosibay-loggerheadturtle.jpg" alt="Loggerhead turtle — Kosi Bay beach" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Loggerhead turtle — Kosi Bay beach</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="activities" data-idx="24" onclick="openLB(24)">
+        <img src="https://amangwanecamp.co.za/wp-content/uploads/2025/09/img20231004105044.jpg" alt="Snorkelling — "The Aquarium"" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Snorkelling — "The Aquarium"</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="activities" data-idx="25" onclick="openLB(25)">
+        <img src="https://amangwanecamp.co.za/wp-content/uploads/2025/10/img20231005101657.jpg" alt="Thonga fish kraal tour" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Thonga fish kraal tour</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+      <div class="g-item" data-cat="activities" data-idx="26" onclick="openLB(26)">
+        <img src="https://amangwanecamp.co.za/wp-content/uploads/2025/09/img_0029.jpg" alt="Birding at Kosi Bay — 450+ species" loading="lazy">
+        <div class="g-overlay">
+          <span class="g-caption">Birding at Kosi Bay — 450+ species</span>
+        </div>
+        <div class="g-zoom-icon">🔍</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="gal-cta">
+  <div style="max-width:600px;margin:0 auto" class="reveal">
+    <h2>Like what you see?<br><em>Come experience it yourself.</em></h2>
+    <p>Units fill fast in peak season — turtle season (Nov–Mar) and school holidays especially. Book directly online.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Now — Check Availability</a>
+      <a href="index.html#contact" class="btn btn-ghost btn-lg">Contact Us</a>
+      <a href="https://wa.me/27829093113" target="_blank" class="btn btn-ghost btn-lg">WhatsApp Us</a>
+    </div>
+    <div style="margin-top:2rem;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap">
+      <a href="accommodation.html" style="color:rgba(255,255,255,.6);font-size:.88rem">→ View Accommodation</a>
+      <a href="activities.html" style="color:rgba(255,255,255,.6);font-size:.88rem">→ See All Activities</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-logo-row">
+        <img class="foot-logo-img" src="images/gallery/gallery-01.png" alt="Amangwane">
+        <div><span class="foot-brand">Amangwane</span><span class="foot-brand-sub">Tented Camp · Kosi Bay Mouth</span></div>
+      </div>
+      <p class="foot-desc">Rustic, affordable en-suite tented accommodation at Kosi Bay Mouth. 100m from the reserve gate. iSimangaliso Wetland Park, KZN.</p>
+      <div class="foot-contacts">
+        <a href="#" data-e="YW1hbmd3YW5lQGtvc2ltb3V0aC5jby56YQ==">amangwane&#64;kosimouth&#46;co&#46;za</a>
+        <a href="tel:0829093113">Michael: 082 909 3113</a>
+        <a href="tel:0844642104">Enock: 084 644 2104</a>
+      </div>
+      <div class="socials"><a href="https://www.facebook.com/profile.php?id=61563130553026" target="_blank">f</a></div>
+    </div>
+    <div class="foot-col">
+      <h4>The Camp</h4>
+      <ul>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="#" onclick="InnStyle('amangwanetentedcamp');return false;">Book Now</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="activities.html#snorkelling">Snorkelling</a></li>
+        <li><a href="activities.html#boat-cruise">Boat Cruise</a></li>
+        <li><a href="activities.html#turtle-tours">Turtle Tours</a></li>
+        <li><a href="activities.html#fishing">Fishing</a></li>
+        <li><a href="https://amangwanecamp.co.za/wp-content/uploads/2025/09/1.png" target="_blank">Rates</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Amangwane Tented Camp · All Rights Reserved</span>
+    <span><a href="#" data-e="YW1hbmd3YW5lQGtvc2ltb3V0aC5jby56YQ==">amangwane&#64;kosimouth&#46;co&#46;za</a></span>
+  </div>
+</footer>
+
+<script>
+// Nav
+function openMnav(){document.getElementById('mnav').classList.add('open');document.body.style.overflow='hidden'}
+function closeMnav(){document.getElementById('mnav').classList.remove('open');document.body.style.overflow=''}
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}}),{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Gallery data for lightbox
+const galData = [["images/gallery/gallery-03.jpg", "Sunset over the Kosi Bay fish traps"], ["images/gallery/gallery-04.jpg", "Hippo on the Kosi Bay lakes"], ["images/gallery/gallery-05.jpg", "Ancient Thonga fish kraals \u2014 700 years old"], ["images/gallery/gallery-06.jpg", "Tent at golden hour under the trees"], ["images/gallery/gallery-07.jpg", "Open-air dining area with reed thatch ceiling"], ["images/gallery/gallery-08.jpg", "Camp bar & kitchen area"], ["images/gallery/gallery-09.jpg", "Braai & boma area under the Waterberry trees"], ["images/gallery/gallery-10.jpg", "2-sleeper unit with giraffe linen"], ["images/gallery/gallery-11.jpg", "3-sleeper unit \u2014 all 3 beds"], ["images/gallery/gallery-12.jpg", "2-sleeper unit interior"], ["images/gallery/gallery-13.jpg", "Family unit with bunk beds"], ["images/gallery/gallery-14.jpg", "Reed en-suite bathroom"], ["images/gallery/gallery-15.jpg", "Tent exterior with private deck"], ["images/gallery/gallery-16.jpg", "Communal kitchen \u2014 crockery & equipment"], ["images/gallery/gallery-17.jpg", "Communal kitchen \u2014 full length counter"], ["images/gallery/gallery-18.jpg", "Kosi Bay Mouth \u2014 crystal clear estuary"], ["images/gallery/gallery-19.jpg", "Kosi Mouth beach at midday"], ["images/gallery/gallery-20.jpg", "Climbing the driftwood at Kosi Mouth beach"], ["images/gallery/gallery-21.jpg", "Child wading into the Kosi estuary"], ["images/gallery/gallery-22.jpg", "Turtle mural at the camp entrance"], ["images/gallery/gallery-23.jpg", "Guided hike through the bushveld with kids"], ["https://amangwanecamp.co.za/wp-content/uploads/2025/06/3-lake-boat-cruise_fish-eagle.jpg", "3-Lake Boat Cruise on the lakes"], ["https://amangwanecamp.co.za/wp-content/uploads/2025/09/canoe-kids.jpg", "Kayak safari on the estuary"], ["https://amangwanecamp.co.za/wp-content/uploads/2025/10/kosibay-loggerheadturtle.jpg", "Loggerhead turtle \u2014 Kosi Bay beach"], ["https://amangwanecamp.co.za/wp-content/uploads/2025/09/img20231004105044.jpg", "Snorkelling \u2014 \"The Aquarium\""], ["https://amangwanecamp.co.za/wp-content/uploads/2025/10/img20231005101657.jpg", "Thonga fish kraal tour"], ["https://amangwanecamp.co.za/wp-content/uploads/2025/09/img_0029.jpg", "Birding at Kosi Bay \u2014 450+ species"]];
+let currentIdx = 0;
+let visibleItems = [];
+
+function getVisibleItems(){
+  return Array.from(document.querySelectorAll('.g-item:not(.hidden)')).map(el=>parseInt(el.dataset.idx));
+}
+
+function openLB(idx){
+  visibleItems = getVisibleItems();
+  const posInVisible = visibleItems.indexOf(idx);
+  currentIdx = posInVisible >= 0 ? posInVisible : 0;
+  showLBItem(currentIdx);
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function showLBItem(pos){
+  const idx = visibleItems[pos];
+  if(idx === undefined || !galData[idx]) return;
+  document.getElementById('lbImg').src = galData[idx][0];
+  document.getElementById('lbCap').textContent = galData[idx][1];
+}
+
+function lbNav(dir){
+  currentIdx = (currentIdx + dir + visibleItems.length) % visibleItems.length;
+  showLBItem(currentIdx);
+}
+
+function closeLB(){
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeLB();
+  if(e.key==='ArrowRight') lbNav(1);
+  if(e.key==='ArrowLeft') lbNav(-1);
+});
+
+// Filter
+function filterGal(cat, btn){
+  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  const items = document.querySelectorAll('.g-item');
+  let count = 0;
+  items.forEach(item=>{
+    const match = cat==='all' || item.dataset.cat===cat;
+    item.classList.toggle('hidden',!match);
+    if(match) count++;
+  });
+  document.getElementById('gal-count').textContent = count+' photos';
+}
+</script>
+
+
+<!-- ═══ CONTACT FORM ═══ -->
+<section id="contact-form" style="background:var(--off-white,#F7F3EA);padding:5rem 2rem;border-top:3px solid var(--sun,#F5C518)">
+  <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start">
+    <div>
+      <div style="font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:#1A8CB5;font-weight:700;margin-bottom:.65rem">Get in Touch</div>
+      <h2 style="font-family:'Fraunces',Georgia,serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:#1C1C2A;margin-bottom:1rem">Contact <em style="font-style:italic;color:#1A8CB5">Amangwane</em></h2>
+      <p style="color:#3A3A4A;font-size:.97rem;line-height:1.8;margin-bottom:1.5rem">Have a question or want to make a group booking? Send us a message and we'll get back to you within 24 hours.</p>
+      <div style="display:flex;flex-direction:column;gap:.75rem">
+        <div style="display:flex;align-items:center;gap:.85rem;padding:.85rem 1rem;background:white;border-radius:8px;border-left:3px solid #F5C518">
+          <span style="font-size:1.2rem">✉️</span>
+          <div>
+            <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#6A6A7A;font-weight:700">Email</div>
+            <a href="#" data-e="YW1hbmd3YW5lQGtvc2ltb3V0aC5jby56YQ==" style="font-size:.9rem;font-weight:600;color:#1A8CB5">amangwane&#64;kosimouth&#46;co&#46;za</a>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.85rem;padding:.85rem 1rem;background:white;border-radius:8px;border-left:3px solid #F5C518">
+          <span style="font-size:1.2rem">📱</span>
+          <div>
+            <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#6A6A7A;font-weight:700">WhatsApp / Call</div>
+            <a href="https://wa.me/27829093113" style="font-size:.9rem;font-weight:600;color:#1A8CB5">Michael: 082 909 3113</a>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.85rem;padding:.85rem 1rem;background:white;border-radius:8px;border-left:3px solid #F5C518">
+          <span style="font-size:1.2rem">📱</span>
+          <div>
+            <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#6A6A7A;font-weight:700">Call</div>
+            <a href="tel:0844642104" style="font-size:.9rem;font-weight:600;color:#1A8CB5">Enock: 084 644 2104</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#1C1C2A;border-radius:14px;padding:2.25rem">
+      <h3 style="font-family:'Fraunces',Georgia,serif;font-size:1.5rem;font-weight:700;color:white;margin-bottom:.25rem;font-style:italic">Send a message</h3>
+      <p style="font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:1.5rem">Goes directly to amangwane@kosimouth.co.za</p>
+      <form id="contactForm" onsubmit="submitContactForm(event)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:.85rem">
+          <div style="display:flex;flex-direction:column;gap:.35rem">
+            <label style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)">First name *</label>
+            <input type="text" id="cf_fn" placeholder="Your name" required
+              style="border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:.75rem .9rem;font-family:inherit;font-size:.88rem;color:white;background:rgba(255,255,255,.07);outline:none;transition:border-color .2s">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.35rem">
+            <label style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)">Last name *</label>
+            <input type="text" id="cf_ln" placeholder="Surname" required
+              style="border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:.75rem .9rem;font-family:inherit;font-size:.88rem;color:white;background:rgba(255,255,255,.07);outline:none">
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.35rem;margin-bottom:.85rem">
+          <label style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)">Email *</label>
+          <input type="email" id="cf_em" placeholder="your@email.com" required
+            style="border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:.75rem .9rem;font-family:inherit;font-size:.88rem;color:white;background:rgba(255,255,255,.07);outline:none">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.35rem;margin-bottom:.85rem">
+          <label style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)">Phone / WhatsApp *</label>
+          <input type="tel" id="cf_ph" placeholder="+27 ..." required
+            style="border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:.75rem .9rem;font-family:inherit;font-size:.88rem;color:white;background:rgba(255,255,255,.07);outline:none">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.35rem;margin-bottom:.85rem">
+          <label style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)">Message</label>
+          <textarea id="cf_msg" rows="3" placeholder="Question, group booking, activities..."
+            style="border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:.75rem .9rem;font-family:inherit;font-size:.88rem;color:white;background:rgba(255,255,255,.07);outline:none;resize:vertical"></textarea>
+        </div>
+        <button type="submit" id="cf_btn"
+          style="background:#F5C518;color:#1C1C2A;padding:.95rem 2rem;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:30px;cursor:pointer;width:100%;font-family:inherit;transition:all .3s">
+          Send Message →
+        </button>
+        <p style="font-size:.7rem;color:rgba(255,255,255,.35);text-align:center;margin-top:.6rem">Sent directly to amangwane@kosimouth.co.za</p>
+      </form>
+      <div id="cf_done" style="display:none;text-align:center;padding:2rem">
+        <div style="font-size:3rem;margin-bottom:.75rem">🤙</div>
+        <h4 style="font-family:'Fraunces',Georgia,serif;font-size:1.5rem;color:white;margin-bottom:.5rem">Message sent!</h4>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.5)">We'll reply within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+function submitContactForm(e){
+  e.preventDefault();
+  var fn=document.getElementById('cf_fn').value,
+      ln=document.getElementById('cf_ln').value,
+      em=document.getElementById('cf_em').value,
+      ph=document.getElementById('cf_ph').value,
+      msg=document.getElementById('cf_msg').value;
+  var body=encodeURIComponent('Name: '+fn+' '+ln+'\nEmail: '+em+'\nPhone: '+ph+'\n\nMessage:\n'+msg);
+  var sub=encodeURIComponent('Website Enquiry — Amangwane Tented Camp');
+  window.location.href='mailto:amangwane@kosimouth.co.za?subject='+sub+'&body='+body;
+  // Tracking
+  if(typeof gtag!=='undefined') gtag('event','contact_form_submit',{event_category:'Lead',event_label:'Contact Form',value:2});
+  if(typeof fbq!=='undefined') fbq('track','Lead',{content_name:'Contact Form'});
+  if(typeof dataLayer!=='undefined') dataLayer.push({event:'contact_form_submit'});
+  var btn=document.getElementById('cf_btn');
+  btn.textContent='Opening your email...';btn.disabled=true;btn.style.background='#2A6E2A';btn.style.color='white';
+  setTimeout(function(){document.getElementById('contactForm').style.display='none';document.getElementById('cf_done').style.display='block';},1800);
+}
+</script>
+<!-- ═══ END CONTACT FORM ═══ -->
+<!-- ═══ SISTER CAMPS STRIP ═══ -->
+<section style="background:#F7F3EA;padding:4rem 2rem;border-top:3px solid #F5C518">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:2.5rem">
+      <div style="font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:#1A8CB5;font-weight:700;margin-bottom:.65rem">Part of the Kosi Mouth Family</div>
+      <h2 style="font-family:'Fraunces',Georgia,serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;color:#1C1C2A;margin-bottom:.75rem">Amangwane is the <em style="font-style:italic;color:#1A8CB5">sister camp</em> of<br>Utshwayelo &amp; Zilonde</h2>
+      <p style="color:#6A6A7A;font-size:.95rem;max-width:560px;margin:0 auto">All three camps are managed by the same team at Kosi Bay Mouth — giving you more accommodation options at this extraordinary destination.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:860px;margin:0 auto">
+      <!-- Utshwayelo -->
+      <a href="https://www.kosimouth.co.za" target="_blank" rel="noopener"
+         style="display:flex;gap:1.25rem;align-items:center;background:white;border-radius:12px;padding:1.5rem;border:1.5px solid rgba(0,0,0,0.08);text-decoration:none;transition:all .3s;box-shadow:0 2px 16px rgba(0,0,0,.06)"
+         onmouseover="this.style.borderColor='#0B83BF';this.style.boxShadow='0 8px 32px rgba(11,131,191,.15)'"
+         onmouseout="this.style.borderColor='rgba(0,0,0,0.08)';this.style.boxShadow='0 2px 16px rgba(0,0,0,.06)'">
+        <div style="width:64px;height:64px;background:#0B83BF;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0">
+          <span style="font-family:Georgia,serif;font-size:.65rem;font-weight:700;color:white;text-align:center;line-height:1.3">UTsh<br>WAY<br>ELO</span>
+        </div>
+        <div>
+          <div style="font-family:'Fraunces',Georgia,serif;font-size:1.05rem;font-weight:700;color:#1C1C2A;margin-bottom:.25rem">Utshwayelo Lodge &amp; Camp</div>
+          <div style="font-size:.78rem;color:#6A6A7A;line-height:1.5;margin-bottom:.5rem">Luxury tents · Hippo cabins · Camping<br>The closest lodge to Kosi Bay beach</div>
+          <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0B83BF">kosimouth.co.za →</div>
+        </div>
+      </a>
+      <!-- Zilonde -->
+      <a href="https://www.kosimouth.co.za" target="_blank" rel="noopener"
+         style="display:flex;gap:1.25rem;align-items:center;background:white;border-radius:12px;padding:1.5rem;border:1.5px solid rgba(0,0,0,0.08);text-decoration:none;transition:all .3s;box-shadow:0 2px 16px rgba(0,0,0,.06)"
+         onmouseover="this.style.borderColor='#2A6E2A';this.style.boxShadow='0 8px 32px rgba(42,110,42,.15)'"
+         onmouseout="this.style.borderColor='rgba(0,0,0,0.08)';this.style.boxShadow='0 2px 16px rgba(0,0,0,.06)'">
+        <div style="width:64px;height:64px;background:#2A6E2A;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0">
+          <span style="font-family:Georgia,serif;font-size:.65rem;font-weight:700;color:white;text-align:center;line-height:1.3">ZIL<br>OND<br>E</span>
+        </div>
+        <div>
+          <div style="font-family:'Fraunces',Georgia,serif;font-size:1.05rem;font-weight:700;color:#1C1C2A;margin-bottom:.25rem">Zilonde Bush Camp</div>
+          <div style="font-size:.78rem;color:#6A6A7A;line-height:1.5;margin-bottom:.5rem">Private shaded campsites · Lake views<br>True bush experience · 4x4 access</div>
+          <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2A6E2A">kosimouth.co.za →</div>
+        </div>
+      </a>
+    </div>
+    <p style="text-align:center;margin-top:1.75rem;font-size:.82rem;color:#9A9A9A">All bookings and enquiries: <a href="#" data-e="aW5mb0Brb3NpbW91dGguY28uemE=" style="color:#1A8CB5">info&#64;kosimouth&#46;co&#46;za</a> · <a href="https://www.kosimouth.co.za" target="_blank" style="color:#1A8CB5">www.kosimouth.co.za</a></p>
+  </div>
+</section>
+<!-- ═══ END SISTER CAMPS ═══ -->
+
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('[onclick*="InnStyle"]').forEach(function(el){
+    el.addEventListener('click',function(){
+      if(typeof gtag!=='undefined') gtag('event','begin_checkout',{event_category:'Booking',event_label:'InnStyle',value:1});
+      if(typeof fbq!=='undefined') fbq('track','InitiateCheckout');
+      if(typeof dataLayer!=='undefined') dataLayer.push({event:'book_now_click'});
+    });
+  });
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el){
+    el.addEventListener('click',function(){
+      if(typeof gtag!=='undefined') gtag('event','whatsapp_click',{event_category:'Contact',value:1});
+      if(typeof fbq!=='undefined') fbq('track','Contact',{content_name:'WhatsApp'});
+    });
+  });
+  document.querySelectorAll('a[href^="mailto"]').forEach(function(el){
+    el.addEventListener('click',function(){
+      if(typeof gtag!=='undefined') gtag('event','email_click',{event_category:'Contact',event_label:el.href});
+    });
+  });
+  document.querySelectorAll('a[href^="tel"]').forEach(function(el){
+    el.addEventListener('click',function(){
+      if(typeof gtag!=='undefined') gtag('event','phone_click',{event_category:'Contact',event_label:el.href});
+    });
+  });
+  var s50=false,s90=false;
+  window.addEventListener('scroll',function(){
+    var p=(window.scrollY+window.innerHeight)/document.body.scrollHeight*100;
+    if(!s50&&p>=50){s50=true;if(typeof gtag!=='undefined')gtag('event','scroll_50',{event_category:'Engagement'});}
+    if(!s90&&p>=90){s90=true;if(typeof gtag!=='undefined')gtag('event','scroll_90',{event_category:'Engagement'});if(typeof fbq!=='undefined')fbq('track','ViewContent',{content_name:document.title});}
+  },{passive:true});
+});
+</script>
+<script>(function(){document.querySelectorAll('a[data-e]').forEach(function(a){a.href='mailto:'+atob(a.getAttribute('data-e'));a.removeAttribute('data-e');});})();</script>
+</body>
+</html>
