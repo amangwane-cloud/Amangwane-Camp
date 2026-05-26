@@ -702,6 +702,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
           <select id="gs"><option>1–2</option><option>3–5</option><option>6–9</option><option>10+ (15% group discount!)</option></select>
         </div>
         <div class="fg"><label>Message</label><textarea id="msg" placeholder="Fishing trip, group details, questions..."></textarea></div>
+        <input type="text" name="website" id="hp" style="display:none" tabindex="-1" autocomplete="off">
         <button type="submit" class="btn-submit" id="sb">Send enquiry →</button>
         <p class="form-note">Sent to amangwane@kosimouth.co.za</p>
       </form>
@@ -772,25 +773,37 @@ function openLB(src){document.getElementById('lbImg').src=src;document.getElemen
 function closeLB(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+emailjs.init('lhCBef3DtFxpVOyuC');
 function submitForm(e){
+  e.preventDefault();
+  if(document.getElementById('hp').value) return;
   if(typeof gtag!=='undefined') gtag('event','contact_form_submit',{event_category:'Lead',event_label:'Homepage Form',value:2});
   if(typeof fbq!=='undefined') fbq('track','Lead',{content_name:'Contact Form'});
   if(typeof dataLayer!=='undefined') dataLayer.push({event:'contact_form_submit'});
-  e.preventDefault();
-  const fn=document.getElementById('fn').value,ln=document.getElementById('ln').value,
-    em=document.getElementById('em').value,ph=document.getElementById('ph').value,
-    ci=document.getElementById('ci').value,co=document.getElementById('co').value,
-    ut=document.getElementById('ut').value,gs=document.getElementById('gs').value,
-    msg=document.getElementById('msg').value;
-  const body=encodeURIComponent('Name: '+fn+' '+ln+'\nEmail: '+em+'\nPhone: '+ph+
-    '\nCheck-in: '+(ci||'TBC')+'\nCheck-out: '+(co||'TBC')+
-    '\nUnit: '+(ut||'TBC')+'\nGuests: '+gs+'\n\nMessage:\n'+msg);
-  const sub=encodeURIComponent('New Enquiry — Amangwane Tented Camp');
-  window.location.href='mailto:amangwane@kosimouth.co.za?subject='+sub+'&body='+body;
   const btn=document.getElementById('sb');
-  btn.textContent='Opening email...';btn.disabled=true;btn.style.background='var(--forest)';
-  setTimeout(()=>{document.getElementById('form').style.display='none';document.getElementById('fd').style.display='block'},1800);
+  btn.textContent='Sending...';btn.disabled=true;
+  emailjs.send('service_752z3a9','template_vy3qj4c',{
+    first_name:document.getElementById('fn').value,
+    last_name:document.getElementById('ln').value,
+    email:document.getElementById('em').value,
+    phone:document.getElementById('ph').value,
+    checkin:document.getElementById('ci').value||'TBC',
+    checkout:document.getElementById('co').value||'TBC',
+    unit:document.getElementById('ut').value||'TBC',
+    guests:document.getElementById('gs').value,
+    message:document.getElementById('msg').value||'—'
+  }).then(()=>{
+    document.getElementById('form').style.display='none';
+    document.getElementById('fd').style.display='block';
+  }).catch(()=>{
+    btn.textContent='Send enquiry →';btn.disabled=false;
+    const err=document.createElement('p');
+    err.textContent='Something went wrong. Please email us directly at amangwane@kosimouth.co.za';
+    err.style.cssText='color:#ff6b6b;font-size:.8rem;margin-top:.75rem;text-align:center';
+    btn.after(err);setTimeout(()=>err.remove(),6000);
+  });
 }
 </script>
 
