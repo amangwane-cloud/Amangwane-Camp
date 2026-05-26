@@ -703,6 +703,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         </div>
         <div class="fg"><label>Message</label><textarea id="msg" placeholder="Fishing trip, group details, questions..."></textarea></div>
         <input type="text" name="website" id="hp" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="g-recaptcha" data-sitekey="6LdxbP0sAAAAALJ9ljU25fXDJF1jBd_NfU1yQsbb" style="margin-bottom:.75rem"></div>
         <button type="submit" class="btn-submit" id="sb">Send enquiry →</button>
         <p class="form-note">Sent to amangwane@kosimouth.co.za</p>
       </form>
@@ -773,12 +774,22 @@ function openLB(src){document.getElementById('lbImg').src=src;document.getElemen
 function closeLB(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
 </script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 emailjs.init('lhCBef3DtFxpVOyuC');
 function submitForm(e){
   e.preventDefault();
   if(document.getElementById('hp').value) return;
+  if(!grecaptcha.getResponse()){
+    const err=document.createElement('p');
+    err.textContent='Please confirm you are not a robot.';
+    err.style.cssText='color:#ff6b6b;font-size:.8rem;margin-bottom:.5rem;text-align:center';
+    const rc=document.querySelector('.g-recaptcha');
+    if(!rc.previousSibling||rc.previousSibling.textContent!=='Please confirm you are not a robot.')rc.before(err);
+    setTimeout(()=>err.remove(),4000);
+    return;
+  }
   if(typeof gtag!=='undefined') gtag('event','contact_form_submit',{event_category:'Lead',event_label:'Homepage Form',value:2});
   if(typeof fbq!=='undefined') fbq('track','Lead',{content_name:'Contact Form'});
   if(typeof dataLayer!=='undefined') dataLayer.push({event:'contact_form_submit'});
@@ -799,6 +810,7 @@ function submitForm(e){
     document.getElementById('fd').style.display='block';
   }).catch(()=>{
     btn.textContent='Send enquiry →';btn.disabled=false;
+    grecaptcha.reset();
     const err=document.createElement('p');
     err.textContent='Something went wrong. Please email us directly at amangwane@kosimouth.co.za';
     err.style.cssText='color:#ff6b6b;font-size:.8rem;margin-top:.75rem;text-align:center';
