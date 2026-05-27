@@ -6,7 +6,10 @@
       "PowerShell(Get-ChildItem \"c:\\\\Websites\\\\Amangwane\" | ForEach-Object { $_.Name })",
       "Bash(node -e ' *)",
       "Bash(Get-ChildItem \"c:\\\\Websites\\\\Amangwane\\\\images\" -ErrorAction SilentlyContinue)",
-      "Bash(Select-Object Name, LastWriteTime)"
+      "Bash(Select-Object Name, LastWriteTime)",
+      "Bash(git -C \"c:\\\\Websites\\\\Amangwane\" add index.html activities.html accommodation.html blog.html gallery.html)",
+      "Bash(git -C 'c:\\\\Websites\\\\Amangwane' commit -m ' *)",
+      "Bash(git -C \"c:\\\\Websites\\\\Amangwane\" push)"
     ]
   }
 }
