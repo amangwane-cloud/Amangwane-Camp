@@ -894,5 +894,19 @@ document.addEventListener('DOMContentLoaded',function(){
 </script>
 <script>(function(){document.querySelectorAll('a[data-e]').forEach(function(a){a.href='mailto:'+atob(a.getAttribute('data-e'));a.removeAttribute('data-e');});})();</script>
 <script src="https://developer.innstyle.co.uk/calendar.min.js"></script>
+<script>
+// Auto-open booking widget when landing via /book URL
+if(window.location.search.indexOf('autobook')!==-1){
+  var _abt=setInterval(function(){
+    if(typeof InnStyle==='function'){clearInterval(_abt);InnStyle('amangwanetentedcamp');}
+  },50);
+  setTimeout(function(){clearInterval(_abt);},5000);
+}
+// Scroll to contact section when landing via /contact URL
+if(window.location.search.indexOf('section=contact')!==-1){
+  var _sc=document.getElementById('contact');
+  if(_sc) setTimeout(function(){_sc.scrollIntoView({behavior:'smooth'});},300);
+}
+</script>
 </body>
 </html>

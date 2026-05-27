@@ -1,4 +1,13 @@
 {
+  "routes": [
+    { "route": "/book",          "redirect": "/?autobook",                              "statusCode": 302 },
+    { "route": "/accommodation", "redirect": "/accommodation.html",                      "statusCode": 301 },
+    { "route": "/activities",    "redirect": "/activities.html",                         "statusCode": 301 },
+    { "route": "/gallery",       "redirect": "/gallery.html",                            "statusCode": 301 },
+    { "route": "/blog",          "redirect": "/blog.html",                               "statusCode": 301 },
+    { "route": "/rates",         "redirect": "/Amangwane_Rates%20Sheet%202026.pdf",      "statusCode": 302 },
+    { "route": "/contact",       "redirect": "/?section=contact",                        "statusCode": 302 }
+  ],
   "responseOverrides": {
     "404": {
       "rewrite": "/index.html",
