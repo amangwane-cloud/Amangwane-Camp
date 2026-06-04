@@ -17,7 +17,7 @@
 
     // Track Book Now button clicks as conversions
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('a[href*="InnStyle"], [onclick*="InnStyle"]').forEach(function(el) {
+      document.querySelectorAll('[onclick*="openBooking"]').forEach(function(el) {
         el.addEventListener('click', function() {
           gtag('event', 'book_now_click', {
             'event_category': 'Booking',
@@ -319,7 +319,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
   <a href="activities.html" onclick="closeMnav()" class='active'>Activities</a>
   <a href="gallery.html" onclick="closeMnav()" >Gallery</a>
   <a href="blog.html" onclick="closeMnav()">Blog</a>
-  <a href="#" onclick="InnStyle('amangwanetentedcamp');closeMnav();return false;" class="mnav-book">Book Now</a>
+  <a href="#" onclick="openBooking();closeMnav();return false;" class="mnav-book">Book Now</a>
 </div>
 <nav id="nav">
   <div class="nav-inner">
@@ -333,7 +333,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
       <li><a href="activities.html" class='active'>Activities</a></li>
       <li><a href="gallery.html" >Gallery</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="nav-cta">Book Now</a></li>
+      <li><a href="#" onclick="openBooking();return false;" class="nav-cta">Book Now</a></li>
     </ul>
     <button class="burger" onclick="openMnav()"><span></span><span></span><span></span></button>
   </div>
@@ -354,7 +354,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
     <p class="ph-p">A living ecosystem where four interconnected lakes meet the Indian Ocean — every activity here is genuinely unforgettable.</p>
     <p style="font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--sun);margin-bottom:1.5rem">All activities can be booked at camp on arrival</p>
     <div class="ph-btns">
-      <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+      <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
       <a href="images/Activities/Activities 2026 WhatsApp-compressed.pdf" target="_blank" class="btn btn-outline-white">Download Activity Sheet</a>
     </div>
   </div>
@@ -410,7 +410,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         Self-guided · Suitable for all ages · No experience needed<br><strong style="color:var(--sun-dark)">⚠ Please do not stand on the reef · Beware of stonefish</strong>
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -444,7 +444,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         R500 per adult · R350 per child (under 12) · Min 2 adults<br>Cruise times: 9:00 AM &amp; 2:00 PM<br>Pack: swimwear, hat, towel, snacks &amp; drinks
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -478,7 +478,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         R950 pp · Min 3 pax · 16h30 to 23h00<br>Mid November to mid March only<br>Must book a day in advance · Weather &amp; guide dependent
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -512,7 +512,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         R350 pp · Min 2 pax · 2-hour excursion<br>Suitable for all ages · No experience needed<br>Scheduled to suit your itinerary
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -546,7 +546,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         R100 pp · Min 4 pax · 1 hour<br>Scheduled to suit your itinerary<br>An experience completely unique to Kosi Bay
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -580,7 +580,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         R3 500 per session · Private boat up to 7 pax · Own gear required<br>Self-guided fishing is free — bring your own gear &amp; a valid fishing licence
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -614,7 +614,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         Pel's Fishing Owl alone is worth the trip for serious birders.
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -648,7 +648,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         R100 pp · Min charge 6 pax · Up to 5 hours<br>Trails: Lake Zilonde · eKovukeni · Lake Kalu<br>Self-guided walks are safe — keep to roads and well-worn tracks
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -682,7 +682,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         Self-guided · Crystal-clear warm water · White sand · Almost nobody else there<br><strong style="color:var(--sun-dark)">⚠ There are no lifeguards on Kosi beaches</strong>
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -718,7 +718,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         Scheduled to suit your itinerary · Ask at reception for pricing &amp; availability
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -749,7 +749,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         Passport · Vehicle registration papers · Moz 3rd Party insurance (available at border)<br>Border: 08h00–17h00
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -780,7 +780,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         4x4 vehicle required inside the park · 4–6 hours<br>No 4x4? We can arrange a driver — ask at reception
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -811,7 +811,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         Permits from the Parks Board office at Lake 3 · 4x4 vehicle required<br>Kosi Mouth Beach Permits: R80 per person &amp; per vehicle
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -842,7 +842,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         R100 pp one way · Min 2 pax · Max R400 for the group
       </div>
       <div class="act-cta">
-        <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
+        <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Your Stay</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -945,7 +945,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
     <h2 class="heading" style="color:var(--white);font-size:clamp(2rem,4vw,3.2rem)">Book your stay &<br><em style="color:var(--sand)">experience all of this</em></h2>
     <p style="color:rgba(255,255,255,.6);margin-bottom:2.5rem;font-size:1rem;max-width:520px;margin-left:auto;margin-right:auto">All activities are bookable on arrival at reception. Just pitch up — we'll sort the rest. Units fill fast in peak season.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem">
-      <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun btn-lg">Book Now — Check Availability</a>
+      <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Now — Check Availability</a>
       <a href="index.html#contact" class="btn btn-ghost btn-lg">Contact Us</a>
       <a href="https://wa.me/27829093113" target="_blank" class="btn btn-ghost btn-lg">WhatsApp Michael</a>
     </div>
@@ -989,7 +989,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         <li><a href="activities.html">Activities</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="#" onclick="InnStyle('amangwanetentedcamp');return false;">Book Now</a></li>
+        <li><a href="#" onclick="openBooking();return false;">Book Now</a></li>
         <li><a href="Amangwane_Rates%20Sheet%202026.pdf" target="_blank">Rates</a></li>
       </ul>
     </div>
@@ -1168,7 +1168,7 @@ function submitContactForm(e){
 
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('[onclick*="InnStyle"]').forEach(function(el){
+  document.querySelectorAll('[onclick*="openBooking"]').forEach(function(el){
     el.addEventListener('click',function(){
       if(typeof gtag!=='undefined') gtag('event','begin_checkout',{event_category:'Booking',event_label:'InnStyle',value:1});
       if(typeof fbq!=='undefined') fbq('track','InitiateCheckout');
@@ -1200,6 +1200,29 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 </script>
 <script>(function(){document.querySelectorAll('a[data-e]').forEach(function(a){a.href='mailto:'+atob(a.getAttribute('data-e'));a.removeAttribute('data-e');});})();</script>
+<!-- Booking modal overlay -->
+<div id="booking-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.78);z-index:9000;overflow-y:auto;-webkit-overflow-scrolling:touch;" onclick="if(event.target===this)closeBooking()">
+  <div style="max-width:980px;margin:48px auto 40px;background:#fff;border-radius:10px;position:relative;padding:0 0 24px;">
+    <button onclick="closeBooking()" title="Close" style="position:absolute;top:-16px;right:-16px;width:36px;height:36px;border-radius:50%;background:#1C1C2A;color:#fff;border:none;font-size:22px;line-height:36px;text-align:center;cursor:pointer;z-index:1;">&#215;</button>
+    <div id="innstyle-target" style="min-height:420px;border-radius:10px;overflow:hidden;"></div>
+  </div>
+</div>
 <script src="https://developer.innstyle.co.uk/calendar.min.js"></script>
+<script>
+var _innLoaded=false;
+function openBooking(){
+  document.getElementById('booking-modal').style.display='block';
+  document.body.style.overflow='hidden';
+  if(!_innLoaded&&typeof InnStyle==='function'){
+    InnStyle('amangwanetentedcamp',{target:'innstyle-target',offset:0});
+    _innLoaded=true;
+  }
+}
+function closeBooking(){
+  document.getElementById('booking-modal').style.display='none';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBooking();});
+</script>
 </body>
 </html>

@@ -199,7 +199,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
   <a href="activities.html" onclick="closeMnav()">Activities</a>
   <a href="gallery.html" onclick="closeMnav()">Gallery</a>
   <a href="blog.html" onclick="closeMnav()">Blog</a>
-  <a href="#" onclick="InnStyle('amangwanetentedcamp');closeMnav();return false;" class="mnav-book">Book Now</a>
+  <a href="#" onclick="openBooking();closeMnav();return false;" class="mnav-book">Book Now</a>
 </div>
 
 <nav>
@@ -214,7 +214,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
       <li><a href="activities.html">Activities</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="blog.html" class="active">Blog</a></li>
-      <li><a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="nav-cta">Book Now</a></li>
+      <li><a href="#" onclick="openBooking();return false;" class="nav-cta">Book Now</a></li>
     </ul>
     <button class="burger" onclick="openMnav()"><span></span><span></span><span></span></button>
   </div>
@@ -259,7 +259,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
 
         <div class="post-cta-inline">
           <p><strong>Turtle season is coming.</strong> Units at Amangwane fill up fast — especially November to January.</p>
-          <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun">Check Availability</a>
+          <a href="#" onclick="openBooking();return false;" class="btn btn-sun">Check Availability</a>
           <a href="#contact-form" class="btn" style="background:white;color:#1A8CB5;border:2px solid #1A8CB5;border-radius:30px;padding:.85rem 1.75rem;font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;display:inline-block;margin-left:.5rem">Contact Us</a>
         </div>
 
@@ -304,7 +304,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
 
         <div class="post-cta-inline">
           <p><strong>Turtle season November–March.</strong> Stay at Amangwane and book turtle tours at Utshwayelo reception on arrival.</p>
-          <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun">Book Your Stay</a>
+          <a href="#" onclick="openBooking();return false;" class="btn btn-sun">Book Your Stay</a>
           <a href="#contact-form" class="btn" style="background:white;color:#1A8CB5;border:2px solid #1A8CB5;border-radius:30px;padding:.85rem 1.75rem;font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;display:inline-block;margin-left:.5rem">Contact Us</a>
         </div>
 
@@ -350,7 +350,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
 
         <div class="post-cta-inline">
           <p><strong>Stay at Amangwane</strong> and book the boat cruise at reception on arrival — no pre-booking needed.</p>
-          <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun">Book Your Stay</a>
+          <a href="#" onclick="openBooking();return false;" class="btn btn-sun">Book Your Stay</a>
           <a href="#contact-form" class="btn" style="background:white;color:#1A8CB5;border:2px solid #1A8CB5;border-radius:30px;padding:.85rem 1.75rem;font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;display:inline-block;margin-left:.5rem">Contact Us</a>
         </div>
 
@@ -398,7 +398,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
     &lt;p&gt;More content here...&lt;/p&gt;
     &lt;div class="post-cta-inline"&gt;
       &lt;p&gt;&lt;strong&gt;Ready to visit?&lt;/strong&gt; Book your stay at Amangwane.&lt;/p&gt;
-      &lt;a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun"&gt;Book Now&lt;/a&gt;
+      &lt;a href="#" onclick="openBooking();return false;" class="btn btn-sun"&gt;Book Now&lt;/a&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/article&gt;</pre>
@@ -436,7 +436,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
     <div class="sidebar-card sidebar-book">
       <h3>Ready to Visit?</h3>
       <p>Units at Amangwane fill fast — especially during turtle season and school holidays. Book directly online.</p>
-      <a href="#" onclick="InnStyle('amangwanetentedcamp');return false;" class="btn btn-sun" style="width:100%;text-align:center;display:block">Check Availability & Book</a>
+      <a href="#" onclick="openBooking();return false;" class="btn btn-sun" style="width:100%;text-align:center;display:block">Check Availability & Book</a>
       <div style="margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,.45);text-align:center">or WhatsApp <a href="https://wa.me/27829093113" style="color:var(--sun)">082 909 3113</a></div>
     </div>
 
@@ -642,7 +642,7 @@ function submitContactForm(e){
         <li><a href="activities.html">Activities</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="#" onclick="InnStyle('amangwanetentedcamp');return false;">Book Now</a></li>
+        <li><a href="#" onclick="openBooking();return false;">Book Now</a></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -667,7 +667,7 @@ function closeMnav(){document.getElementById('mnav').classList.remove('open');do
 
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('[onclick*="InnStyle"]').forEach(function(el){
+  document.querySelectorAll('[onclick*="openBooking"]').forEach(function(el){
     el.addEventListener('click',function(){
       if(typeof gtag!=='undefined') gtag('event','begin_checkout',{event_category:'Booking',event_label:'InnStyle',value:1});
       if(typeof fbq!=='undefined') fbq('track','InitiateCheckout');
@@ -699,6 +699,29 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 </script>
 <script>(function(){document.querySelectorAll('a[data-e]').forEach(function(a){a.href='mailto:'+atob(a.getAttribute('data-e'));a.removeAttribute('data-e');});})();</script>
+<!-- Booking modal overlay -->
+<div id="booking-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.78);z-index:9000;overflow-y:auto;-webkit-overflow-scrolling:touch;" onclick="if(event.target===this)closeBooking()">
+  <div style="max-width:980px;margin:48px auto 40px;background:#fff;border-radius:10px;position:relative;padding:0 0 24px;">
+    <button onclick="closeBooking()" title="Close" style="position:absolute;top:-16px;right:-16px;width:36px;height:36px;border-radius:50%;background:#1C1C2A;color:#fff;border:none;font-size:22px;line-height:36px;text-align:center;cursor:pointer;z-index:1;">&#215;</button>
+    <div id="innstyle-target" style="min-height:420px;border-radius:10px;overflow:hidden;"></div>
+  </div>
+</div>
 <script src="https://developer.innstyle.co.uk/calendar.min.js"></script>
+<script>
+var _innLoaded=false;
+function openBooking(){
+  document.getElementById('booking-modal').style.display='block';
+  document.body.style.overflow='hidden';
+  if(!_innLoaded&&typeof InnStyle==='function'){
+    InnStyle('amangwanetentedcamp',{target:'innstyle-target',offset:0});
+    _innLoaded=true;
+  }
+}
+function closeBooking(){
+  document.getElementById('booking-modal').style.display='none';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBooking();});
+</script>
 </body>
 </html>
