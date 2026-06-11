@@ -300,30 +300,86 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LodgingBusiness",
-  "name": "Kosi Bay Accommodation | 2, 3 & Family Tented Units — Amangwane Tented Camp",
-  "description": "En-suite tented accommodation at Kosi Bay Mouth — 2-sleeper, 3-sleeper and family bunk bed units. Private bathrooms, linen & towels included. Affordable Kosi Bay accommodation.",
-  "url": "https://amangwanecamp.co.za/accommodation.html",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kosi Bay Mouth",
-    "addressRegion": "KwaZulu-Natal",
-    "addressCountry": "ZA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -26.8919159,
-    "longitude": 32.8547293
-  },
-  "telephone": "+27829093113",
-  "email": "amangwane@kosimouth.co.za",
-  "image": "https://www.amangwanecamp.co.za/images/accommodation/accommodation-01.png",
-  "priceRange": "R",
-  "currenciesAccepted": "ZAR",
-  "paymentAccepted": "Cash, EFT",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61563130553026",
-    "https://www.kosimouth.co.za"
+  "@graph": [
+    {
+      "@type": "LodgingBusiness",
+      "name": "Amangwane Tented Camp",
+      "description": "En-suite tented accommodation at Kosi Bay Mouth — 2-sleeper, 3-sleeper and family bunk bed units. Private bathrooms, linen and towels included. Affordable Kosi Bay accommodation in iSimangaliso Wetland Park.",
+      "url": "https://www.amangwanecamp.co.za/accommodation.html",
+      "telephone": "+27829093113",
+      "email": "amangwane@kosimouth.co.za",
+      "image": "https://www.amangwanecamp.co.za/images/accommodation/accommodation-01.png",
+      "priceRange": "R–RR",
+      "currenciesAccepted": "ZAR",
+      "paymentAccepted": "Cash, EFT",
+      "checkinTime": "14:00",
+      "checkoutTime": "10:00",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kosi Bay Mouth",
+        "addressLocality": "Kosi Bay",
+        "addressRegion": "KwaZulu-Natal",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -26.8919159,
+        "longitude": 32.8547293
+      },
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Private en-suite bathroom", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Hot shower", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Linen included", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Towels included", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Private deck", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Self-catering", "value": true}
+      ],
+      "sameAs": ["https://www.facebook.com/profile.php?id=61563130553026", "https://www.kosimouth.co.za"]
+    },
+    {
+      "@type": "HotelRoom",
+      "name": "2-Sleeper Tented Unit",
+      "description": "Intimate en-suite tented unit for two — two single beds, private reed bathroom with hot shower, basin and toilet, linen and towels included, private wooden deck.",
+      "occupancy": {"@type": "QuantitativeValue", "maxValue": 2},
+      "bed": [{"@type": "BedDetails", "typeOfBed": "Single", "numberOfBeds": 2}],
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Private en-suite bathroom", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Hot shower", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Linen included", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Private deck", "value": true}
+      ],
+      "image": "https://www.amangwanecamp.co.za/images/accommodation/accommodation-02.jpg",
+      "url": "https://www.amangwanecamp.co.za/accommodation.html#two-sleeper"
+    },
+    {
+      "@type": "HotelRoom",
+      "name": "3-Sleeper Tented Unit",
+      "description": "En-suite tented unit for three — three single beds, private reed bathroom with hot shower, basin and toilet, linen and towels included, private wooden deck.",
+      "occupancy": {"@type": "QuantitativeValue", "maxValue": 3},
+      "bed": [{"@type": "BedDetails", "typeOfBed": "Single", "numberOfBeds": 3}],
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Private en-suite bathroom", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Hot shower", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Linen included", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Private deck", "value": true}
+      ],
+      "image": "https://www.amangwanecamp.co.za/images/accommodation/accommodation-06.jpg",
+      "url": "https://www.amangwanecamp.co.za/accommodation.html#three-sleeper"
+    },
+    {
+      "@type": "HotelRoom",
+      "name": "Family Bunk Bed Unit",
+      "description": "Family en-suite tented unit with bunk beds — ideal for families. Private reed bathroom with hot shower, basin and toilet, linen and towels included, private wooden deck.",
+      "occupancy": {"@type": "QuantitativeValue", "maxValue": 4},
+      "bed": [{"@type": "BedDetails", "typeOfBed": "Bunk bed"}],
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Private en-suite bathroom", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Hot shower", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Linen included", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Private deck", "value": true}
+      ],
+      "url": "https://www.amangwanecamp.co.za/accommodation.html#family"
+    }
   ]
 }
 </script>

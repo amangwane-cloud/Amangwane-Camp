@@ -348,30 +348,130 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LodgingBusiness",
-  "name": "Amangwane Tented Camp | Kosi Bay Mouth Accommodation — Affordable En-Suite Tents",
-  "description": "Amangwane Tented Camp — rustic, affordable en-suite tented accommodation at Kosi Bay Mouth. 100m from the reserve gate, 2km from the beach. Sister camp to Utshwayelo Lodge. iSimangaliso Wetland Park, KZN.",
-  "url": "https://www.amangwanecamp.co.za/",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kosi Bay Mouth",
-    "addressRegion": "KwaZulu-Natal",
-    "addressCountry": "ZA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -26.8919159,
-    "longitude": 32.8547293
-  },
-  "telephone": "+27829093113",
-  "email": "amangwane@kosimouth.co.za",
-  "image": "https://www.amangwanecamp.co.za/images/gallery/gallery-02.jpg",
-  "priceRange": "R",
-  "currenciesAccepted": "ZAR",
-  "paymentAccepted": "Cash, EFT",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61563130553026",
-    "https://www.kosimouth.co.za"
+  "@graph": [
+    {
+      "@type": "LodgingBusiness",
+      "name": "Amangwane Tented Camp",
+      "alternateName": ["Amangwane Camp", "Amangwane Kosi Bay"],
+      "description": "Rustic, affordable en-suite tented accommodation at Kosi Bay Mouth in iSimangaliso Wetland Park, KwaZulu-Natal, South Africa. 100m from the reserve gate, 2km from the beach. Sister camp to Utshwayelo Lodge.",
+      "url": "https://www.amangwanecamp.co.za/",
+      "logo": "https://www.amangwanecamp.co.za/images/Logo/activities-01.png",
+      "image": [
+        "https://www.amangwanecamp.co.za/images/gallery/gallery-02.jpg",
+        "https://www.amangwanecamp.co.za/images/gallery/gallery-01.jpg",
+        "https://www.amangwanecamp.co.za/images/Activities/boat_fish_eagle.jpg"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kosi Bay Mouth",
+        "addressLocality": "Kosi Bay",
+        "addressRegion": "KwaZulu-Natal",
+        "postalCode": "3975",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -26.8919159,
+        "longitude": 32.8547293
+      },
+      "hasMap": "https://maps.google.com/?q=-26.8919159,32.8547293",
+      "telephone": "+27829093113",
+      "email": "amangwane@kosimouth.co.za",
+      "priceRange": "R–RR",
+      "currenciesAccepted": "ZAR",
+      "paymentAccepted": "Cash, EFT",
+      "checkinTime": "14:00",
+      "checkoutTime": "10:00",
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Private en-suite bathroom", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Hot shower", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Linen included", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Towels included", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Private deck", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Parking", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Self-catering", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Activity bookings on arrival", "value": true}
+      ],
+      "tourBookingPage": "https://amangwanetentedcamp.innstyle.co.uk",
+      "containedInPlace": {
+        "@type": "Park",
+        "name": "iSimangaliso Wetland Park",
+        "description": "UNESCO World Heritage Site protecting the Kosi Bay lake system, beaches, wetlands and marine reserves in KwaZulu-Natal, South Africa."
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61563130553026",
+        "https://www.kosimouth.co.za"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where is Amangwane Tented Camp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Amangwane Tented Camp is at Kosi Bay Mouth in iSimangaliso Wetland Park, KwaZulu-Natal, South Africa — a UNESCO World Heritage Site. The camp is 100 metres from the reserve gate and 2 kilometres from the beach."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What accommodation types does Amangwane offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Amangwane offers three en-suite tented unit types: 2-sleeper units (two single beds), 3-sleeper units (three single beds), and family bunk bed units. All have private reed bathrooms with hot shower, basin and toilet. Linen and bath towels are included in all units."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What activities are available at Kosi Bay Mouth?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Activities at Kosi Bay Mouth include snorkelling at The Aquarium, 3-lake boat cruises, turtle tracking tours (mid-November to mid-March), kayak safaris, Thonga fish kraal tours, lake and beach fishing, birding, guided beach hikes, cultural experiences, and day trips to Mozambique and Tembe Elephant Park. All activities are booked at the camp reception on arrival."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Amangwane Tented Camp self-catering?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Amangwane Tented Camp is fully self-catering. Guests should bring their own food and supplies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I book Amangwane Tented Camp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Book online at https://www.amangwanecamp.co.za/book, email amangwane@kosimouth.co.za, or call +27 82 909 3113."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the check-in and check-out times?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check-in at Amangwane Tented Camp is from 14:00 and check-out is by 10:00."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is turtle season at Kosi Bay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Turtle tracking tours run from mid-November to mid-March during the nesting season of loggerhead and leatherback sea turtles. Tours depart at 16:30, cost R950 per person, and require a minimum of 3 people. Advance booking is required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Kosi Bay in iSimangaliso Wetland Park?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Kosi Bay Mouth is within iSimangaliso Wetland Park, a UNESCO World Heritage Site in KwaZulu-Natal. The park protects a unique lake system, beaches, coral reefs and wetlands. Amangwane Tented Camp is situated 100 metres from the reserve entrance gate."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>

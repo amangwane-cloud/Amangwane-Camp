@@ -267,30 +267,75 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TouristAttraction",
-  "name": "Kosi Bay Activities | Snorkelling, Boat Cruise, Turtle Tours & More",
-  "description": "9 unforgettable activities at Kosi Bay Mouth — snorkelling, 3-lake boat cruise, turtle tours, kayak safari, Thonga fish traps, fishing, birding & beach hikes. Book with Amangwane.",
-  "url": "https://amangwanecamp.co.za/activities.html",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kosi Bay Mouth",
-    "addressRegion": "KwaZulu-Natal",
-    "addressCountry": "ZA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -26.8919159,
-    "longitude": 32.8547293
-  },
-  "telephone": "+27829093113",
-  "email": "amangwane@kosimouth.co.za",
-  "image": "https://www.amangwanecamp.co.za/images/Activities/boat_fish_eagle.jpg",
-  "priceRange": "R",
-  "currenciesAccepted": "ZAR",
-  "paymentAccepted": "Cash, EFT",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61563130553026",
-    "https://www.kosimouth.co.za"
+  "@graph": [
+    {
+      "@type": "TouristAttraction",
+      "name": "Kosi Bay Mouth Activities",
+      "description": "Activities at Kosi Bay Mouth in iSimangaliso Wetland Park — snorkelling, 3-lake boat cruise, turtle tracking, kayak safari, fish kraal tours, fishing, birding, guided hikes and day trips.",
+      "url": "https://www.amangwanecamp.co.za/activities.html",
+      "telephone": "+27829093113",
+      "email": "amangwane@kosimouth.co.za",
+      "image": "https://www.amangwanecamp.co.za/images/Activities/boat_fish_eagle.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kosi Bay Mouth",
+        "addressRegion": "KwaZulu-Natal",
+        "addressCountry": "ZA"
+      },
+      "geo": {"@type": "GeoCoordinates", "latitude": -26.8919159, "longitude": 32.8547293}
+    },
+    {
+      "@type": "TouristAttraction",
+      "name": "Snorkelling at The Aquarium — Kosi Bay",
+      "description": "Self-guided snorkelling at The Aquarium, a sheltered rock pool at Kosi Bay Mouth teeming with tropical fish and coral. Accessible from the beach. No charge for the snorkel site.",
+      "image": "https://www.amangwanecamp.co.za/images/Activities/snorkelling_fish.jpg",
+      "url": "https://www.amangwanecamp.co.za/activities.html#snorkelling",
+      "geo": {"@type": "GeoCoordinates", "latitude": -26.8919159, "longitude": 32.8547293}
+    },
+    {
+      "@type": "TouristAttraction",
+      "name": "3-Lake Boat Cruise — Kosi Bay",
+      "description": "Guided boat cruise through the Kosi Bay lake system — three interconnected lakes rich in birdlife, hippos and crocodiles. Departs from Amangwane jetty. Bookable at reception.",
+      "image": "https://www.amangwanecamp.co.za/images/Activities/boat_fish_eagle.jpg",
+      "url": "https://www.amangwanecamp.co.za/activities.html#boat-cruise",
+      "geo": {"@type": "GeoCoordinates", "latitude": -26.8919159, "longitude": 32.8547293}
+    },
+    {
+      "@type": "TouristAttraction",
+      "name": "Turtle Tracking Tours — Kosi Bay",
+      "description": "Guided night tours to watch loggerhead and leatherback sea turtles nest on Kosi Bay beach. Season runs mid-November to mid-March. Departs 16:30. R950 per person, minimum 3 guests. Advance booking required.",
+      "image": "https://www.amangwanecamp.co.za/images/Activities/turtle_loggerhead.jpg",
+      "url": "https://www.amangwanecamp.co.za/activities.html#turtle-tours",
+      "geo": {"@type": "GeoCoordinates", "latitude": -26.8919159, "longitude": 32.8547293}
+    },
+    {
+      "@type": "TouristAttraction",
+      "name": "Kayak Safari — Kosi Bay Estuary",
+      "description": "Guided kayak safari through the Kosi Bay estuary and lake system. Paddle past mangroves, reed beds and abundant birdlife. Suitable for all fitness levels.",
+      "image": "https://www.amangwanecamp.co.za/images/Activities/kayak_safari%202.jpg",
+      "url": "https://www.amangwanecamp.co.za/activities.html#kayak"
+    },
+    {
+      "@type": "TouristAttraction",
+      "name": "Thonga Fish Kraal Tours — Kosi Bay",
+      "description": "Guided cultural tour of the traditional Thonga fish traps (kraals) — ancient hand-built fish traps that have been used for centuries in the Kosi Bay estuary. A UNESCO-recognised cultural heritage site.",
+      "image": "https://www.amangwanecamp.co.za/images/Activities/fish_trap_tour%201.jpg",
+      "url": "https://www.amangwanecamp.co.za/activities.html#fish-traps"
+    },
+    {
+      "@type": "TouristAttraction",
+      "name": "Fishing at Kosi Bay — Lakes and Beach",
+      "description": "Fishing in the Kosi Bay lakes and on the beach. Target species include kob, shad, grunter and rock cod. Fishing gear available. Both shore and boat fishing options.",
+      "image": "https://www.amangwanecamp.co.za/images/Activities/fishing_jack.jpg",
+      "url": "https://www.amangwanecamp.co.za/activities.html#fishing"
+    },
+    {
+      "@type": "TouristAttraction",
+      "name": "Birding at Kosi Bay Mouth",
+      "description": "World-class birding in iSimangaliso Wetland Park. Over 300 species recorded including African Fish Eagle, Pel's Fishing Owl, Palmnut Vulture, flamingos, kingfishers and shorebirds.",
+      "image": "https://www.amangwanecamp.co.za/images/Activities/birding_flamingos.jpg",
+      "url": "https://www.amangwanecamp.co.za/activities.html#birding"
+    }
   ]
 }
 </script>
