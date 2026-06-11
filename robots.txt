@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
+Allow: /index.html
+Allow: /accommodation.html
+Allow: /activities.html
+Allow: /gallery.html
+Allow: /blog.html
+Allow: /book
+Allow: /accommodation
+Allow: /activities
+Allow: /gallery
+Allow: /blog
+Allow: /rates
+Allow: /contact
+Disallow: /.github/
 
-Sitemap: https://amangwanecamp.co.za/sitemap.xml
+Sitemap: https://www.amangwanecamp.co.za/sitemap.xml
