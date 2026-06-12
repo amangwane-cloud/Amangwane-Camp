@@ -1053,9 +1053,17 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
   </div>
   <div class="foot-bottom">
     <span>© 2026 Amangwane Tented Camp · Kosi Bay Mouth · All Rights Reserved</span>
-    <span><a href="#" data-e="YW1hbmd3YW5lQGtvc2ltb3V0aC5jby56YQ==">amangwane&#64;kosimouth&#46;co&#46;za</a></span>
+    <span><a href="privacy.html">Privacy Policy</a> · <a href="#" data-e="YW1hbmd3YW5lQGtvc2ltb3V0aC5jby56YQ==">amangwane&#64;kosimouth&#46;co&#46;za</a></span>
   </div>
 </footer>
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1C1C2A;color:rgba(255,255,255,.85);padding:1rem 1.5rem;z-index:8000;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between;font-size:.82rem;border-top:2px solid #F5C518;">
+  <span style="flex:1;min-width:240px;">🍪 We use cookies to analyse traffic and improve your experience. By continuing to use this site you accept our use of cookies. <a href="privacy.html" style="color:#F5C518;text-decoration:underline;">Privacy Policy</a></span>
+  <div style="display:flex;gap:.75rem;flex-shrink:0;">
+    <button onclick="acceptCookies()" style="background:#F5C518;color:#1C1C2A;border:none;padding:.5rem 1.4rem;border-radius:30px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">Accept</button>
+    <button onclick="declineCookies()" style="background:transparent;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.2);padding:.5rem 1rem;border-radius:30px;font-size:.78rem;cursor:pointer;">Decline</button>
+  </div>
+</div>
+<script>(function(){var b=document.getElementById('cookie-banner');if(!localStorage.getItem('cookie_consent')){b.style.display='flex';}window.acceptCookies=function(){localStorage.setItem('cookie_consent','accepted');b.style.display='none';};window.declineCookies=function(){localStorage.setItem('cookie_consent','declined');b.style.display='none';};})();</script>
 
 <script>
 const nav=document.getElementById('nav');
@@ -1132,6 +1140,10 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
           <textarea id="cf_msg" rows="3" placeholder="Question, group booking, activities..."
             style="border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:.75rem .9rem;font-family:inherit;font-size:.88rem;color:white;background:rgba(255,255,255,.07);outline:none;resize:vertical"></textarea>
         </div>
+        <label style="display:flex;align-items:flex-start;gap:.6rem;font-size:.8rem;color:rgba(255,255,255,.65);margin-bottom:.85rem;cursor:pointer;">
+          <input type="checkbox" id="popi_consent" required style="margin-top:3px;flex-shrink:0;accent-color:#F5C518;">
+          <span>I consent to Amangwane Tented Camp processing my personal information to respond to my enquiry, in accordance with the <a href="privacy.html" style="color:#F5C518;" target="_blank">Privacy Policy</a>. *</span>
+        </label>
         <button type="submit" id="cf_btn"
           style="background:#F5C518;color:#1C1C2A;padding:.95rem 2rem;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:30px;cursor:pointer;width:100%;font-family:inherit;transition:all .3s">
           Send Message →
