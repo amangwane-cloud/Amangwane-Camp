@@ -1,0 +1,38 @@
+name: Scheduled Site Backup
+
+on:
+  schedule:
+    - cron: '0 2 */2 * *'   # runs every 2 days at 2am UTC
+  workflow_dispatch:          # also allows manual trigger from GitHub
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+
+      - name: Create backup archive
+        run: |
+          DATE=$(date +'%Y-%m-%d')
+          zip -r "amangwane-backup-${DATE}.zip" . \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "*.zip"
+          echo "BACKUP_FILE=amangwane-backup-${DATE}.zip" >> $GITHUB_ENV
+          echo "BACKUP_DATE=${DATE}" >> $GITHUB_ENV
+
+      - name: Create GitHub Release (snapshot)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: backup-${{ env.BACKUP_DATE }}
+          name: "Site Backup — ${{ env.BACKUP_DATE }}"
+          body: |
+            Automatic scheduled backup of Amangwane Tented Camp website.
+
+            **To restore:** Download the zip file, extract it, and push the files to GitHub.
+          files: ${{ env.BACKUP_FILE }}
+          prerelease: false
