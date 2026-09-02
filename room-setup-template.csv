@@ -1,0 +1,11 @@
+Unit,Unit Type,Capacity,Rate Per Night,Single Occupancy Rate,Single Occupancy Allowed,Active,Notes
+Tent 1,Standard 2-bed,2,900,630,Yes,Yes,
+Tent 2,Standard 2-bed,2,900,630,Yes,Yes,
+Tent 3,Standard 2-bed,2,900,630,Yes,Yes,
+Tent 4,Standard 2-bed,2,900,630,Yes,Yes,
+Tent 5,Standard 2-bed,2,900,630,Yes,Yes,
+Tent 6,Standard 2-bed,2,900,630,Yes,Yes,
+Tent 7,Standard 2-bed,2,900,630,Yes,Yes,
+Tent 8,Standard 2-bed,2,900,630,Yes,Yes,
+Tent 9,3-sleeper,3,1125,,No,Yes,
+Tent 10,Family unit,4,1350,,No,Yes,

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Book Your Stay | Amangwane Tented Camp</title>
+<style>
+:root{--ink:#1c1c2a;--paper:#fffef8;--sand:#f7f3ea;--sun:#f5c518;--ocean:#1a8cb5;--forest:#2a6e2a;--muted:#6a6a7a;--line:rgba(28,28,42,.14);font-family:'DM Sans',Arial,sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--sand);color:var(--ink)}header{background:var(--ink);color:white;padding:1rem 5vw;display:flex;justify-content:space-between;align-items:center;gap:1rem}header a{color:white;text-decoration:none}header strong{font-family:Georgia,serif;font-size:1.25rem}header span{font-size:.72rem;color:rgba(255,255,255,.6);letter-spacing:.12em;text-transform:uppercase}.shell{max-width:1180px;margin:auto;padding:3rem 2rem}.intro{max-width:700px;margin-bottom:2rem}.eyebrow{color:var(--ocean);font-size:.7rem;font-weight:bold;letter-spacing:.18em;text-transform:uppercase}.intro h1{font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;margin:.6rem 0}.intro p{color:var(--muted)}.grid{display:grid;grid-template-columns:1.3fr .8fr;gap:1.5rem;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1.5rem;box-shadow:0 8px 28px rgba(28,28,42,.06)}.panel h2{font-family:Georgia,serif;margin-top:0;font-size:1.35rem}.fields{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}.field.full{grid-column:1/-1}.field label{font-size:.68rem;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}input,select{font:inherit;padding:.75rem;border:1px solid var(--line);border-radius:5px;background:white;color:var(--ink)}input:focus,select:focus{outline:2px solid rgba(26,140,181,.3);border-color:var(--ocean)}.rooms{display:grid;gap:.7rem}.room{display:flex;justify-content:space-between;gap:1rem;align-items:center;border:1px solid var(--line);border-radius:6px;padding:.85rem;background:white}.room.unavailable{opacity:.45}.room small{display:block;color:var(--muted)}.room input{accent-color:var(--ocean)}.price{font-weight:bold;white-space:nowrap}.summary{position:sticky;top:1rem}.line{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--line);gap:1rem}.total{font-size:1.35rem;font-weight:bold;padding-top:1rem}.deposit{background:#eaf3ea;border-left:4px solid var(--forest);padding:1rem;margin-top:1rem}.button{display:block;width:100%;border:0;border-radius:5px;background:var(--sun);color:var(--ink);font-weight:bold;padding:.95rem;cursor:pointer;margin-top:1rem}.button:hover{background:#c8980a}.message{display:none;padding:1rem;border-radius:5px;margin-top:1rem}.message.show{display:block;background:#eaf3ea;color:var(--forest)}.note{font-size:.78rem;color:var(--muted);line-height:1.5}.warning{display:none;color:#a33b2b;font-size:.8rem;margin:.5rem 0}.warning.show{display:block}@media(max-width:800px){.grid{grid-template-columns:1fr}.summary{position:static}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.shell{padding:2rem 1rem}}
+</style>
+</head>
+<body>
+<header><a href="index.html"><strong>Amangwane</strong></a><span>Tented Camp · Kosi Bay Mouth</span></header>
+<main class="shell">
+<section class="intro"><div class="eyebrow">Direct booking</div><h1>Find your place at Kosi Bay.</h1><p>Select your dates and tent. Rates are the confirmed 2026 Amangwane rates; the 50% deposit shown is due within 48 hours to hold the booking.</p></section>
+<div class="grid">
+<section class="panel"><h2>1. Choose your stay</h2><div class="fields"><div class="field"><label for="checkin">Check-in</label><input id="checkin" type="date"></div><div class="field"><label for="checkout">Check-out</label><input id="checkout" type="date"></div><div class="field"><label for="guests">Guests</label><select id="guests"><option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option></select></div><div class="field"><label for="roomType">Unit preference</label><select id="roomType"><option value="all">Show all units</option><option value="standard">Standard 2-bed</option><option value="three">3-sleeper</option><option value="family">Family unit</option></select></div></div><p id="dateWarning" class="warning"></p><h2>2. Available tents</h2><div id="rooms" class="rooms"></div></section>
+<aside class="panel summary"><h2>Your booking</h2><div class="line"><span>Dates</span><strong id="dateSummary">Select dates</strong></div><div class="line"><span>Nights</span><strong id="nightSummary">0</strong></div><div class="line"><span>Accommodation</span><strong id="staySummary">Select a tent</strong></div><div class="line total"><span>Total</span><strong id="total">R0</strong></div><div class="deposit"><strong>Deposit due: <span id="deposit">R0</span></strong><p class="note">50% is required within 48 hours to secure the booking. Final payment is due 30 days before arrival.</p></div><h2 style="margin-top:1.5rem">3. Guest details</h2><form id="bookingForm"><div class="field"><label for="firstName">First name</label><input id="firstName" required></div><div class="field"><label for="lastName">Last name</label><input id="lastName" required></div><div class="field"><label for="email">Email</label><input id="email" type="email" required></div><div class="field"><label for="phone">Phone / WhatsApp</label><input id="phone" type="tel" required></div><div class="field"><label for="notes">Notes</label><input id="notes" placeholder="Group, fishing trip, special request"></div><input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"><button class="button" type="submit">Request booking</button></form><div id="message" class="message"></div></aside>
+</div></main>
+<script>
+/* ---------------------------------------------------------------------------
+ * Fill these two in after deploying google-sheets-booking-backend.gs as a
+ * Web App. CONFIG.secret must match SHARED_SECRET in that script.
+ * The secret here is only a light anti-spam token — it is visible in page
+ * source, so it stops bots, not a determined person.
+ * ------------------------------------------------------------------------- */
+const CONFIG={backendUrl:'REPLACE_WITH_WEB_APP_URL',secret:'REPLACE_WITH_SHARED_SECRET'};
+
+const units=[...Array.from({length:8},(_,i)=>({id:`Tent ${i+1}`,name:`Tent ${i+1}`,type:'standard',label:'Standard 2-bed',capacity:2,rate:900})),{id:'Tent 9',name:'Tent 9',type:'three',label:'3-sleeper',capacity:3,rate:1125},{id:'Tent 10',name:'Tent 10',type:'family',label:'Family unit',capacity:4,rate:1350}];
+let blocked={}; // { 'Tent 3': ['2026-10-01', ...] } from the Availability Board
+const $=id=>document.getElementById(id);
+const money=value=>`R${Math.round(value).toLocaleString('en-ZA')}`;
+const configured=()=>CONFIG.backendUrl.indexOf('REPLACE_')<0;
+
+function nights(){const a=$('checkin').value,b=$('checkout').value;if(!a||!b)return 0;const d=(new Date(b)-new Date(a))/86400000;return d>0?Math.round(d):0}
+function nightKeys(){const a=$('checkin').value,n=nights(),out=[],base=new Date(a+'T00:00:00Z').getTime();for(let i=0;i<n;i++){out.push(new Date(base+i*86400000).toISOString().slice(0,10))}return out}
+function occupied(unit){const taken=blocked[unit.id]||[];return nightKeys().some(k=>taken.indexOf(k)>-1)}
+function selectedUnit(){const c=document.querySelector('input[name="unit"]:checked');return c?units.find(u=>u.id===c.value):null}
+
+async function loadAvailability(){
+  const a=$('checkin').value,b=$('checkout').value;
+  if(!configured()||!a||!b||!(new Date(b)>new Date(a))){blocked={};render();return}
+  try{
+    const url=`${CONFIG.backendUrl}?action=availability&start=${a}&end=${b}&secret=${encodeURIComponent(CONFIG.secret)}`;
+    const res=await fetch(url);
+    const data=await res.json();
+    blocked=(data&&data.blocked)||{};
+  }catch(e){blocked={}} // backend still re-checks on submit
+  render();
+}
+
+function render(){
+  const count=Number($('guests').value),filter=$('roomType').value;
+  const list=units.filter(u=>(filter==='all'||u.type===filter)&&u.capacity>=count);
+  $('rooms').innerHTML=list.map(u=>{
+    const taken=occupied(u);
+    const rate=count===1&&u.type==='standard'?630:u.rate;
+    return `<label class="room ${taken?'unavailable':''}"><span><input type="radio" name="unit" value="${u.id}" ${taken?'disabled':''}> <strong>${u.name}</strong><small>${u.label} · sleeps ${u.capacity}${taken?' · booked for these dates':''}</small></span><span class="price">${money(rate)} / night</span></label>`;
+  }).join('')||'<p class="note">No units match these requirements.</p>';
+  document.querySelectorAll('input[name="unit"]').forEach(i=>i.addEventListener('change',update));
+  update();
+}
+
+function update(){
+  const n=nights(),u=selectedUnit();
+  const rate=u?(Number($('guests').value)===1&&u.type==='standard'?630:u.rate):0,total=n*rate;
+  $('dateSummary').textContent=n?`${$('checkin').value} to ${$('checkout').value}`:'Select dates';
+  $('nightSummary').textContent=n;
+  $('staySummary').textContent=u?u.name:'Select a tent';
+  $('total').textContent=money(total);
+  $('deposit').textContent=money(total/2);
+}
+
+function validate(){
+  const n=nights(),warning=$('dateWarning');
+  warning.classList.toggle('show',!n);
+  warning.textContent=n?'':'Choose a valid check-in and check-out date.';
+  return Boolean(n);
+}
+
+function showMessage(text,ok){
+  const m=$('message');
+  m.textContent=text;
+  m.className='message show';
+  m.style.background=ok?'':'#f7dfda';
+  m.style.color=ok?'':'#a33b2b';
+}
+
+['checkin','checkout'].forEach(id=>$(id).addEventListener('change',()=>{validate();loadAvailability()}));
+['guests','roomType'].forEach(id=>$(id).addEventListener('change',()=>{render();validate()}));
+
+$('bookingForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  if($('company').value)return; // honeypot filled = bot
+  if(!validate()||!selectedUnit())return;
+  if(!configured()){showMessage('Booking is not connected yet. Please WhatsApp us on +27 82 909 3113 or email info@kosimouth.co.za.',false);return}
+  const u=selectedUnit();
+  const btn=e.target.querySelector('button[type="submit"]');
+  btn.disabled=true;btn.textContent='Sending…';
+  const payload={
+    secret:CONFIG.secret,company:'',
+    firstName:$('firstName').value.trim(),lastName:$('lastName').value.trim(),
+    email:$('email').value.trim(),phone:$('phone').value.trim(),notes:$('notes').value.trim(),
+    unit:u.id,guests:Number($('guests').value),
+    checkin:$('checkin').value,checkout:$('checkout').value
+  };
+  try{
+    const res=await fetch(CONFIG.backendUrl,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    const data=await res.json();
+    if(data&&data.ok){
+      showMessage(`Booking request ${data.ref} received. Deposit due: ${money(data.deposit)} (50% of ${money(data.total)}), payable within 48 hours to hold the tent. We'll email payment details and confirm shortly.`,true);
+      e.target.reset();
+      loadAvailability();
+    }else{
+      showMessage((data&&data.error)||'Sorry, that booking could not be completed. Please WhatsApp us on +27 82 909 3113.',false);
+    }
+  }catch(err){
+    showMessage('Could not reach the booking server. Please email info@kosimouth.co.za or WhatsApp +27 82 909 3113 to complete your booking.',false);
+  }finally{
+    btn.disabled=false;btn.textContent='Request booking';
+  }
+});
+
+render();
+loadAvailability();
+</script>
+</body>
+</html>

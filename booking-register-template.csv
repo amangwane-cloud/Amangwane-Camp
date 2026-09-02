@@ -1,0 +1,2 @@
+Booking ID,Status,Guest First Name,Guest Last Name,Email,Phone,Unit,Unit Type,Guests,Check-in,Check-out,Nights,Rate Per Night,Total,Deposit Required,Deposit Paid,Deposit Due,Balance Due,Booking Source,Created At,Notes
+AMG-SAMPLE,deposit-pending,Test,Guest,test@example.com,+27 82 000 0000,Tent 1,Standard 2-bed,2,2026-09-10,2026-09-13,3,900,2700,1350,0,2026-09-12,1350,Direct,2026-08-27T00:00:00Z,Sample row - delete before use
