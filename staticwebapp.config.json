@@ -1,8 +1,7 @@
 {
   "routes": [
     { "route": "/admin.html",    "allowedRoles": ["authenticated"] },
-    { "route": "/booking.html",  "allowedRoles": ["authenticated"] },
-    { "route": "/book",          "redirect": "/?section=contact",                       "statusCode": 302 },
+    { "route": "/book",          "redirect": "/booking.html",                           "statusCode": 302 },
     { "route": "/accommodation", "redirect": "/accommodation.html",                      "statusCode": 301 },
     { "route": "/activities",    "redirect": "/activities.html",                         "statusCode": 301 },
     { "route": "/gallery",       "redirect": "/gallery.html",                            "statusCode": 301 },

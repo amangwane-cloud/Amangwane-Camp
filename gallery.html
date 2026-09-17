@@ -309,7 +309,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
   <a href="activities.html" onclick="closeMnav()">Activities</a>
   <a href="gallery.html" onclick="closeMnav()" class="active">Gallery</a>
   <a href="blog.html" onclick="closeMnav()">Blog</a>
-  <a href="index.html#contact" data-book onclick="closeMnav()" class="mnav-book">Book Now</a>
+  <a href="booking.html" data-book onclick="closeMnav()" class="mnav-book">Book Now</a>
 </div>
 
 <nav id="nav">
@@ -324,7 +324,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
       <li><a href="activities.html">Activities</a></li>
       <li><a href="gallery.html" class="active">Gallery</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="index.html#contact" data-book class="nav-cta">Book Now</a></li>
+      <li><a href="booking.html" data-book class="nav-cta">Book Now</a></li>
     </ul>
     <button class="burger" onclick="openMnav()"><span></span><span></span><span></span></button>
   </div>
@@ -567,7 +567,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
     <h2>Like what you see?<br><em>Come experience it yourself.</em></h2>
     <p>Units fill fast in peak season — turtle season (Nov–Mar) and school holidays especially. Book directly online.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="index.html#contact" data-book class="btn btn-sun btn-lg">Book Now — Check Availability</a>
+      <a href="booking.html" data-book class="btn btn-sun btn-lg">Book Now — Check Availability</a>
       <a href="https://wa.me/27829093113" target="_blank" class="btn btn-ghost btn-lg">WhatsApp Us</a>
     </div>
     <div style="margin-top:2rem;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap">
@@ -598,7 +598,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         <li><a href="accommodation.html">Accommodation</a></li>
         <li><a href="activities.html">Activities</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="index.html#contact" data-book>Book Now</a></li>
+        <li><a href="booking.html" data-book>Book Now</a></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -835,7 +835,7 @@ function submitContactForm(e){
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('[data-book]').forEach(function(el){
     el.addEventListener('click',function(){
-      if(typeof gtag!=='undefined') gtag('event','begin_checkout',{event_category:'Booking',event_label:'Contact Form',value:1});
+      if(typeof gtag!=='undefined') gtag('event','begin_checkout',{event_category:'Booking',event_label:'Booking Form',value:1});
       if(typeof fbq!=='undefined') fbq('track','InitiateCheckout');
       if(typeof dataLayer!=='undefined') dataLayer.push({event:'book_now_click'});
     });
