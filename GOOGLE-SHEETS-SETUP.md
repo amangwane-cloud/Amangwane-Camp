@@ -38,6 +38,12 @@ The hosted booking database will be the source of truth. Google Sheets will be a
 
 ## Connecting the website booking form (`booking.html`)
 
+**Current status: not connected.** `booking.html` currently emails a request straight
+to amangwane@kosimouth.co.za via EmailJS (same account as the main site contact
+form) instead of writing to this workbook. Availability shown on the page is not
+live-checked in this state — every tent shows as available regardless of the
+Availability Board. The steps below wire it back up to the Sheet when that's ready.
+
 `booking.html` can write straight into this workbook through a Google Apps Script
 Web App — no separate server needed.
 
@@ -52,9 +58,13 @@ Web App — no separate server needed.
    - *Execute as:* **Me**
    - *Who has access:* **Anyone**
    - Deploy, approve the permission prompt, and copy the `…/exec` URL.
-5. In `booking.html`, edit the `CONFIG` block near the top of the `<script>`:
-   - `backendUrl` = the `…/exec` URL from step 4
-   - `secret` = the same string as `SHARED_SECRET`
+5. In `booking.html`, set `CONFIG.backendUrl` (near the top of the `<script>`) to the
+   `…/exec` URL from step 4 — the previously-deployed URL is kept in a comment
+   right above it. Note: the form submit handler currently only sends the
+   EmailJS request (no `secret` field, no POST to the backend) — restore the
+   `fetch(CONFIG.backendUrl, ...)` POST (with a `secret` field matching
+   `SHARED_SECRET`) alongside or instead of the email send, depending on
+   whether you still want the email once the Sheet is live.
 6. After any later change to `google-sheets-booking-backend.gs`, run
    **Deploy > Manage deployments > (edit) > Version: New version**, or the live
    URL keeps serving the old code.

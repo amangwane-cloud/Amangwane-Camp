@@ -17,14 +17,18 @@
 <section class="panel"><h2>1. Choose your stay</h2><div class="fields"><div class="field"><label for="checkin">Check-in</label><input id="checkin" type="date"></div><div class="field"><label for="checkout">Check-out</label><input id="checkout" type="date"></div><div class="field"><label for="guests">Guests</label><select id="guests"><option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option></select></div><div class="field"><label for="roomType">Unit preference</label><select id="roomType"><option value="all">Show all units</option><option value="standard">Standard 2-bed</option><option value="three">3-sleeper</option><option value="family">Family unit</option></select></div></div><p id="dateWarning" class="warning"></p><h2>2. Available tents</h2><div id="rooms" class="rooms"></div></section>
 <aside class="panel summary"><h2>Your booking</h2><div class="line"><span>Dates</span><strong id="dateSummary">Select dates</strong></div><div class="line"><span>Nights</span><strong id="nightSummary">0</strong></div><div class="line"><span>Accommodation</span><strong id="staySummary">Select a tent</strong></div><div class="line total"><span>Total</span><strong id="total">R0</strong></div><div class="deposit"><strong>Deposit due: <span id="deposit">R0</span></strong><p class="note">50% is required within 48 hours to secure the booking. Final payment is due 30 days before arrival.</p></div><h2 style="margin-top:1.5rem">3. Guest details</h2><form id="bookingForm"><div class="field"><label for="firstName">First name</label><input id="firstName" required></div><div class="field"><label for="lastName">Last name</label><input id="lastName" required></div><div class="field"><label for="email">Email</label><input id="email" type="email" required></div><div class="field"><label for="phone">Phone / WhatsApp</label><input id="phone" type="tel" required></div><div class="field"><label for="notes">Notes</label><input id="notes" placeholder="Group, fishing trip, special request"></div><input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"><button class="button" type="submit">Request booking</button></form><div id="message" class="message"></div></aside>
 </div></main>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-/* ---------------------------------------------------------------------------
- * Fill these two in after deploying google-sheets-booking-backend.gs as a
- * Web App. CONFIG.secret must match SHARED_SECRET in that script.
- * The secret here is only a light anti-spam token — it is visible in page
- * source, so it stops bots, not a determined person.
- * ------------------------------------------------------------------------- */
-const CONFIG={backendUrl:'REPLACE_WITH_WEB_APP_URL',secret:'REPLACE_WITH_SHARED_SECRET'};
+emailjs.init('lhCBef3DtFxpVOyuC');
+/* Not connected yet — Sheets/live-availability backend comes later.
+   Paste the Web App /exec URL from Apps Script into backendUrl to
+   reconnect it (Deploy > New deployment > Web app). Until then
+   requests are emailed to amangwane@kosimouth.co.za and availability
+   isn't live-checked.
+   Previously-deployed URL (not yet wired back in, kept here so it
+   doesn't have to be redeployed):
+   https://script.google.com/macros/s/AKfycbxQHt2gkhY1Hts7og-icLBtJRiBLlZXp5SJih8tHW-mjLTgA_M7kcpIzsJsYm_RgEjVUQ/exec */
+const CONFIG={backendUrl:'REPLACE_WITH_APPS_SCRIPT_URL'};
 
 const units=[...Array.from({length:8},(_,i)=>({id:`Tent ${i+1}`,name:`Tent ${i+1}`,type:'standard',label:'Standard 2-bed',capacity:2,rate:900})),{id:'Tent 9',name:'Tent 9',type:'three',label:'3-sleeper',capacity:3,rate:1125},{id:'Tent 10',name:'Tent 10',type:'family',label:'Family unit',capacity:4,rate:1350}];
 let blocked={}; // { 'Tent 3': ['2026-10-01', ...] } from the Availability Board
@@ -41,11 +45,11 @@ async function loadAvailability(){
   const a=$('checkin').value,b=$('checkout').value;
   if(!configured()||!a||!b||!(new Date(b)>new Date(a))){blocked={};render();return}
   try{
-    const url=`${CONFIG.backendUrl}?action=availability&start=${a}&end=${b}&secret=${encodeURIComponent(CONFIG.secret)}`;
+    const url=`${CONFIG.backendUrl}?action=availability&start=${a}&end=${b}`;
     const res=await fetch(url);
     const data=await res.json();
     blocked=(data&&data.blocked)||{};
-  }catch(e){blocked={}} // backend still re-checks on submit
+  }catch(e){blocked={}} // no live backend yet — availability isn't verified until reconnected
   render();
 }
 
@@ -89,36 +93,33 @@ function showMessage(text,ok){
 ['checkin','checkout'].forEach(id=>$(id).addEventListener('change',()=>{validate();loadAvailability()}));
 ['guests','roomType'].forEach(id=>$(id).addEventListener('change',()=>{render();validate()}));
 
-$('bookingForm').addEventListener('submit',async e=>{
+$('bookingForm').addEventListener('submit',e=>{
   e.preventDefault();
   if($('company').value)return; // honeypot filled = bot
   if(!validate()||!selectedUnit())return;
-  if(!configured()){showMessage('Booking is not connected yet. Please WhatsApp us on +27 82 909 3113 or email info@kosimouth.co.za.',false);return}
   const u=selectedUnit();
+  const n=nights(),rate=Number($('guests').value)===1&&u.type==='standard'?630:u.rate,total=n*rate,deposit=total/2;
   const btn=e.target.querySelector('button[type="submit"]');
   btn.disabled=true;btn.textContent='Sending…';
-  const payload={
-    secret:CONFIG.secret,company:'',
-    firstName:$('firstName').value.trim(),lastName:$('lastName').value.trim(),
-    email:$('email').value.trim(),phone:$('phone').value.trim(),notes:$('notes').value.trim(),
-    unit:u.id,guests:Number($('guests').value),
-    checkin:$('checkin').value,checkout:$('checkout').value
-  };
-  try{
-    const res=await fetch(CONFIG.backendUrl,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
-    const data=await res.json();
-    if(data&&data.ok){
-      showMessage(`Booking request ${data.ref} received. Deposit due: ${money(data.deposit)} (50% of ${money(data.total)}), payable within 48 hours to hold the tent. We'll email payment details and confirm shortly.`,true);
-      e.target.reset();
-      loadAvailability();
-    }else{
-      showMessage((data&&data.error)||'Sorry, that booking could not be completed. Please WhatsApp us on +27 82 909 3113.',false);
-    }
-  }catch(err){
-    showMessage('Could not reach the booking server. Please email info@kosimouth.co.za or WhatsApp +27 82 909 3113 to complete your booking.',false);
-  }finally{
+  emailjs.send('service_752z3a9','template_vy3qj4c',{
+    first_name:$('firstName').value.trim(),
+    last_name:$('lastName').value.trim(),
+    email:$('email').value.trim(),
+    phone:$('phone').value.trim(),
+    checkin:$('checkin').value,
+    checkout:$('checkout').value,
+    unit:u.name,
+    guests:$('guests').value,
+    message:`${$('notes').value.trim()||'—'}\n\nNights: ${n} · Total: ${money(total)} · Deposit due (50%): ${money(deposit)}`
+  }).then(()=>{
+    showMessage(`Thanks! Your request for ${u.name} (${$('checkin').value} to ${$('checkout').value}) has been sent. Deposit due: ${money(deposit)} (50% of ${money(total)}) within 48 hours to hold the tent. We'll reply within 24 hours to confirm and send payment details.`,true);
+    e.target.reset();
+    render();
+  }).catch(()=>{
+    showMessage('Could not send your request. Please email amangwane@kosimouth.co.za or WhatsApp +27 82 909 3113 to complete your booking.',false);
+  }).finally(()=>{
     btn.disabled=false;btn.textContent='Request booking';
-  }
+  });
 });
 
 render();
