@@ -19,7 +19,7 @@
 </div></main>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-emailjs.init('lhCBef3DtFxpVOyuC');
+if(typeof emailjs!=='undefined') emailjs.init('lhCBef3DtFxpVOyuC');
 /* Not connected yet — Sheets/live-availability backend comes later.
    Paste the Web App /exec URL from Apps Script into backendUrl to
    reconnect it (Deploy > New deployment > Web app). Until then
@@ -96,7 +96,9 @@ function showMessage(text,ok){
 $('bookingForm').addEventListener('submit',e=>{
   e.preventDefault();
   if($('company').value)return; // honeypot filled = bot
-  if(!validate()||!selectedUnit())return;
+  if(!validate())return;
+  if(!selectedUnit()){showMessage('Please select a tent from the list above before requesting a booking.',false);return}
+  if(typeof emailjs==='undefined'){showMessage('Could not load the booking form. Please email amangwane@kosimouth.co.za or WhatsApp +27 82 909 3113 to complete your booking.',false);return}
   const u=selectedUnit();
   const n=nights(),rate=Number($('guests').value)===1&&u.type==='standard'?630:u.rate,total=n*rate,deposit=total/2;
   const btn=e.target.querySelector('button[type="submit"]');
