@@ -117,7 +117,8 @@ $('bookingForm').addEventListener('submit',e=>{
     showMessage(`Thanks! Your request for ${u.name} (${$('checkin').value} to ${$('checkout').value}) has been sent. Deposit due: ${money(deposit)} (50% of ${money(total)}) within 48 hours to hold the tent. We'll reply within 24 hours to confirm and send payment details.`,true);
     e.target.reset();
     render();
-  }).catch(()=>{
+  }).catch(err=>{
+    console.error('EmailJS send failed:',err);
     showMessage('Could not send your request. Please email amangwane@kosimouth.co.za or WhatsApp +27 82 909 3113 to complete your booking.',false);
   }).finally(()=>{
     btn.disabled=false;btn.textContent='Request booking';
