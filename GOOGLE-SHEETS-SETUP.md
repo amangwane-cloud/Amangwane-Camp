@@ -78,8 +78,8 @@ Web App — no separate server needed.
   `staticwebapp.config.json`, carry `noindex`, and are not linked from any public
   page or the sitemap. To go live for guests: remove the `booking.html` line from
   `routes`, drop the `noindex` meta, and add the nav link + a sitemap entry.
-- This does not replace InnStyle. Decide which system is authoritative before
-  taking real bookings through both.
+- InnStyle has been removed from the site. Public "Book Now" CTAs now go to the
+  contact form at `index.html#contact`; this page is the separate, gated flow.
 
 ## Important
 

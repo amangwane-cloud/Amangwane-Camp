@@ -9,7 +9,16 @@
       "Bash(Select-Object Name, LastWriteTime)",
       "Bash(git -C \"c:\\\\Websites\\\\Amangwane\" add index.html activities.html accommodation.html blog.html gallery.html)",
       "Bash(git -C 'c:\\\\Websites\\\\Amangwane' commit -m ' *)",
-      "Bash(git -C \"c:\\\\Websites\\\\Amangwane\" push)"
+      "Bash(git -C \"c:\\\\Websites\\\\Amangwane\" push)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(python3 -c \"import sys; content = sys.stdin.read\\(\\); start = content.find\\('build = function'\\); print\\(content[start:start+1500]\\)\")",
+      "Bash(git push *)",
+      "PowerShell($f = \"c:\\\\Websites\\\\Kosi Bay\\\\utshwayelolodge.WordPress.2026-06-11.xml\"; [Math]::Round\\(\\(Get-Item $f\\).Length / 1MB, 2\\))",
+      "Bash(curl -sI \"https://amangwanecamp.co.za/\")",
+      "Bash(curl -sI \"https://www.amangwanecamp.co.za/\")",
+      "Bash(curl -sI \"https://www.amangwanecamp.co.za/robots.txt\")",
+      "Bash(curl -s \"https://www.amangwanecamp.co.za/robots.txt\")"
     ]
   }
 }

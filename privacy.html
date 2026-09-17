@@ -90,7 +90,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
   <a href="activities.html" onclick="closeMnav()">Activities</a>
   <a href="gallery.html" onclick="closeMnav()">Gallery</a>
   <a href="blog.html" onclick="closeMnav()">Blog</a>
-  <a href="#" onclick="openBooking();closeMnav();return false;" class="mnav-book">Book Now</a>
+  <a href="index.html#contact" data-book onclick="closeMnav()" class="mnav-book">Book Now</a>
 </div>
 
 <nav id="nav" class="solid">
@@ -104,7 +104,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
     <li><a href="activities.html">Activities</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="#" onclick="openBooking();return false;" class="nav-cta">Book Now</a></li>
+    <li><a href="index.html#contact" data-book class="nav-cta">Book Now</a></li>
   </ul>
   <button class="burger" onclick="openMnav()"><span></span><span></span><span></span></button>
 </nav>
@@ -183,11 +183,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
       <td><strong>EmailJS</strong></td>
       <td>Delivers your contact form submission to our email inbox</td>
       <td>Name, email, phone, message, dates</td>
-    </tr>
-    <tr>
-      <td><strong>InnStyle</strong> (innstyle.co.uk)</td>
-      <td>Online booking and reservation management</td>
-      <td>Booking details, name, contact info, payment data</td>
     </tr>
     <tr>
       <td><strong>Google Analytics 4</strong> (Google Ireland Ltd)</td>
@@ -290,7 +285,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         <li><a href="activities.html">Activities</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="#" onclick="openBooking();return false;">Book Now</a></li>
+        <li><a href="index.html#contact" data-book>Book Now</a></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -308,26 +303,9 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
   </div>
 </footer>
 
-<!-- Booking modal -->
-<div id="booking-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.78);z-index:9000;overflow-y:auto;-webkit-overflow-scrolling:touch;" onclick="if(event.target===this)closeBooking()">
-  <div style="max-width:980px;margin:48px auto 40px;background:#fff;border-radius:10px;position:relative;padding:0 0 24px;">
-    <button onclick="closeBooking()" title="Close" style="position:absolute;top:-16px;right:-16px;width:36px;height:36px;border-radius:50%;background:#1C1C2A;color:#fff;border:none;font-size:22px;line-height:36px;text-align:center;cursor:pointer;z-index:1;">&#215;</button>
-    <div id="innstyle-target" style="min-height:420px;border-radius:10px;overflow:hidden;"></div>
-  </div>
-</div>
-
-<script src="https://developer.innstyle.co.uk/calendar.min.js"></script>
 <script>
-var _innLoaded=false;
 function openMnav(){document.getElementById('mnav').classList.add('open');document.body.style.overflow='hidden'}
 function closeMnav(){document.getElementById('mnav').classList.remove('open');document.body.style.overflow=''}
-function openBooking(){
-  document.getElementById('booking-modal').style.display='block';
-  document.body.style.overflow='hidden';
-  if(!_innLoaded&&typeof InnStyle==='function'){InnStyle('amangwanetentedcamp',{target:'innstyle-target',offset:0});_innLoaded=true;}
-}
-function closeBooking(){document.getElementById('booking-modal').style.display='none';document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBooking();});
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>50),{passive:true});
 </script>

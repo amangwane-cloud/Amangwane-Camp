@@ -17,11 +17,11 @@
 
     // Track Book Now button clicks as conversions
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('[onclick*="openBooking"]').forEach(function(el) {
+      document.querySelectorAll('[data-book]').forEach(function(el) {
         el.addEventListener('click', function() {
           gtag('event', 'book_now_click', {
             'event_category': 'Booking',
-            'event_label': 'InnStyle Calendar Opened',
+            'event_label': 'Booking Enquiry Started',
             'value': 1
           });
         });
@@ -173,8 +173,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
 .reveal.show{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
-/* InnStyle booking modal */
-.innstyle-modal-overlay{z-index:400!important}
 
 @media(max-width:900px){.foot-inner{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.nav-links{display:none}.burger{display:flex}.foot-inner{grid-template-columns:1fr;gap:2rem}.foot-bottom{flex-direction:column;text-align:center}}
@@ -392,7 +390,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         {"@type": "LocationFeatureSpecification", "name": "Self-catering", "value": true},
         {"@type": "LocationFeatureSpecification", "name": "Activity bookings on arrival", "value": true}
       ],
-      "tourBookingPage": "https://amangwanetentedcamp.innstyle.co.uk",
+      "tourBookingPage": "https://www.amangwanecamp.co.za/#contact",
       "containedInPlace": {
         "@type": "Park",
         "name": "iSimangaliso Wetland Park",
@@ -497,7 +495,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
   <a href="activities.html" onclick="closeMnav()" >Activities</a>
   <a href="gallery.html" onclick="closeMnav()" >Gallery</a>
   <a href="blog.html" onclick="closeMnav()">Blog</a>
-  <a href="#" onclick="openBooking();closeMnav();return false;" class="mnav-book">Book Now</a>
+  <a href="#contact" data-book onclick="closeMnav()" class="mnav-book">Book Now</a>
 </div>
 <nav id="nav">
   <div class="nav-inner">
@@ -511,7 +509,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
       <li><a href="activities.html" >Activities</a></li>
       <li><a href="gallery.html" >Gallery</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="#" onclick="openBooking();return false;" class="nav-cta">Book Now</a></li>
+      <li><a href="#contact" data-book class="nav-cta">Book Now</a></li>
     </ul>
     <button class="burger" onclick="openMnav()"><span></span><span></span><span></span></button>
   </div>
@@ -527,8 +525,8 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
     <h1>Amangwane<br><em>Tented Camp</em></h1>
     <p class="hero-tagline">Rustic. Affordable. At Kosi Mouth Gate.</p>
     <div class="hero-btns">
-      <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Book Now — Check Availability</a>
-      <a href="index.html#contact" class="btn btn-ghost btn-lg">Contact Us</a>
+      <a href="#contact" data-book class="btn btn-sun btn-lg">Book Now — Check Availability</a>
+      <a href="https://wa.me/27829093113" target="_blank" class="btn btn-ghost btn-lg">WhatsApp Us</a>
       <a href="accommodation.html" class="btn btn-outline-white">See Accommodation</a>
     </div>
   </div>
@@ -579,7 +577,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         <span class="vibe">♻️ Sustainable tourism</span>
       </div>
       <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="#" onclick="openBooking();return false;" class="btn btn-sun">Book Now</a>
+        <a href="#contact" data-book class="btn btn-sun">Book Now</a>
         <a href="accommodation.html" class="btn btn-outline">See Accommodation</a>
       </div>
     </div>
@@ -601,7 +599,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         <span class="gtag">🥾 Hiking Groups</span>
         <span class="gtag">💼 Corporate Teams</span>
       </div>
-      <a href="#" onclick="openBooking();return false;" class="btn btn-sun">Enquire for Groups</a>
+      <a href="#contact" data-book class="btn btn-sun">Enquire for Groups</a>
     </div>
   </div>
 </div>
@@ -662,8 +660,8 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
       </div>
     </div>
     <div style="text-align:center;margin-top:2.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal">
-      <a href="#" onclick="openBooking();return false;" class="btn btn-sun btn-lg">Check Availability & Book</a>
-      <a href="index.html#contact" class="btn btn-outline btn-lg">Contact Us</a>
+      <a href="#contact" data-book class="btn btn-sun btn-lg">Check Availability & Book</a>
+      <a href="https://wa.me/27829093113" target="_blank" class="btn btn-outline btn-lg">WhatsApp Us</a>
       <a href="accommodation.html" class="btn btn-ocean">View All Accommodation</a>
     </div>
   </div>
@@ -754,7 +752,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
     <h2>Ready to come to <em>Kosi Bay?</em></h2>
     <p>Units fill fast in peak season — especially turtle season (Nov–Mar) and school holidays. Book directly online or contact us.</p>
     <div class="big-cta-btns">
-      <a href="#" onclick="openBooking();return false;" class="btn btn-dark btn-lg">Book Now — Check Availability</a>
+      <a href="#contact" data-book class="btn btn-dark btn-lg">Book Now — Check Availability</a>
       <a href="https://wa.me/27829093113" target="_blank" class="btn btn-outline btn-lg" style="border-color:var(--charcoal);color:var(--charcoal)">WhatsApp Michael</a>
     </div>
     <div style="margin-top:2rem;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap">
@@ -841,7 +839,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.5);padding:3.5rem 2rem
         <li><a href="activities.html">Activities</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="#" onclick="openBooking();return false;">Book Now</a></li>
+        <li><a href="#contact" data-book>Book Now</a></li>
         <li><a href="Amangwane_Rates%20Sheet%202026.pdf" target="_blank">Rates</a></li>
       </ul>
     </div>
@@ -982,9 +980,9 @@ function submitForm(e){
 
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('[onclick*="openBooking"]').forEach(function(el){
+  document.querySelectorAll('[data-book]').forEach(function(el){
     el.addEventListener('click',function(){
-      if(typeof gtag!=='undefined') gtag('event','begin_checkout',{event_category:'Booking',event_label:'InnStyle',value:1});
+      if(typeof gtag!=='undefined') gtag('event','begin_checkout',{event_category:'Booking',event_label:'Contact Form',value:1});
       if(typeof fbq!=='undefined') fbq('track','InitiateCheckout');
       if(typeof dataLayer!=='undefined') dataLayer.push({event:'book_now_click'});
     });
@@ -1014,37 +1012,8 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 </script>
 <script>(function(){document.querySelectorAll('a[data-e]').forEach(function(a){a.href='mailto:'+atob(a.getAttribute('data-e'));a.removeAttribute('data-e');});})();</script>
-<!-- Booking modal overlay -->
-<div id="booking-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.78);z-index:9000;overflow-y:auto;-webkit-overflow-scrolling:touch;" onclick="if(event.target===this)closeBooking()">
-  <div style="max-width:980px;margin:48px auto 40px;background:#fff;border-radius:10px;position:relative;padding:0 0 24px;">
-    <button onclick="closeBooking()" title="Close" style="position:absolute;top:-16px;right:-16px;width:36px;height:36px;border-radius:50%;background:#1C1C2A;color:#fff;border:none;font-size:22px;line-height:36px;text-align:center;cursor:pointer;z-index:1;">&#215;</button>
-    <div id="innstyle-target" style="min-height:420px;border-radius:10px;overflow:hidden;"></div>
-  </div>
-</div>
-<script src="https://developer.innstyle.co.uk/calendar.min.js"></script>
 <script>
-var _innLoaded=false;
-function openBooking(){
-  document.getElementById('booking-modal').style.display='block';
-  document.body.style.overflow='hidden';
-  if(!_innLoaded&&typeof InnStyle==='function'){
-    InnStyle('amangwanetentedcamp',{target:'innstyle-target',offset:0});
-    _innLoaded=true;
-  }
-}
-function closeBooking(){
-  document.getElementById('booking-modal').style.display='none';
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBooking();});
-// Auto-open booking widget when landing via /book URL
-if(window.location.search.indexOf('autobook')!==-1){
-  var _abt=setInterval(function(){
-    if(typeof InnStyle==='function'){clearInterval(_abt);openBooking();}
-  },50);
-  setTimeout(function(){clearInterval(_abt);},5000);
-}
-// Scroll to contact section when landing via /contact URL
+// Scroll to the enquiry form when landing via the /contact or /book URL
 if(window.location.search.indexOf('section=contact')!==-1){
   var _sc=document.getElementById('contact');
   if(_sc) setTimeout(function(){_sc.scrollIntoView({behavior:'smooth'});},300);
