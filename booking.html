@@ -15,9 +15,10 @@
 <section class="intro"><div class="eyebrow">Direct booking</div><h1>Find your place at Kosi Bay.</h1><p>Select your dates and tent. Rates are the confirmed 2026 Amangwane rates; the 50% deposit shown is due within 48 hours to hold the booking.</p></section>
 <div class="grid">
 <section class="panel"><h2>1. Choose your stay</h2><div class="fields"><div class="field"><label for="checkin">Check-in</label><input id="checkin" type="date"></div><div class="field"><label for="checkout">Check-out</label><input id="checkout" type="date"></div><div class="field"><label for="guests">Guests</label><select id="guests"><option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option></select></div><div class="field"><label for="roomType">Unit preference</label><select id="roomType"><option value="all">Show all units</option><option value="standard">Standard 2-bed</option><option value="three">3-sleeper</option><option value="family">Family unit</option></select></div></div><p id="dateWarning" class="warning"></p><h2>2. Available tents</h2><div id="rooms" class="rooms"></div></section>
-<aside class="panel summary"><h2>Your booking</h2><div class="line"><span>Dates</span><strong id="dateSummary">Select dates</strong></div><div class="line"><span>Nights</span><strong id="nightSummary">0</strong></div><div class="line"><span>Accommodation</span><strong id="staySummary">Select a tent</strong></div><div class="line total"><span>Total</span><strong id="total">R0</strong></div><div class="deposit"><strong>Deposit due: <span id="deposit">R0</span></strong><p class="note">50% is required within 48 hours to secure the booking. Final payment is due 30 days before arrival.</p></div><h2 style="margin-top:1.5rem">3. Guest details</h2><form id="bookingForm"><div class="field"><label for="firstName">First name</label><input id="firstName" required></div><div class="field"><label for="lastName">Last name</label><input id="lastName" required></div><div class="field"><label for="email">Email</label><input id="email" type="email" required></div><div class="field"><label for="phone">Phone / WhatsApp</label><input id="phone" type="tel" required></div><div class="field"><label for="notes">Notes</label><input id="notes" placeholder="Group, fishing trip, special request"></div><input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"><button class="button" type="submit">Request booking</button></form><div id="message" class="message"></div></aside>
+<aside class="panel summary"><h2>Your booking</h2><div class="line"><span>Dates</span><strong id="dateSummary">Select dates</strong></div><div class="line"><span>Nights</span><strong id="nightSummary">0</strong></div><div class="line"><span>Accommodation</span><strong id="staySummary">Select a tent</strong></div><div class="line total"><span>Total</span><strong id="total">R0</strong></div><div class="deposit"><strong>Deposit due: <span id="deposit">R0</span></strong><p class="note">50% is required within 48 hours to secure the booking. Final payment is due 30 days before arrival.</p></div><h2 style="margin-top:1.5rem">3. Guest details</h2><form id="bookingForm"><div class="field"><label for="firstName">First name</label><input id="firstName" required></div><div class="field"><label for="lastName">Last name</label><input id="lastName" required></div><div class="field"><label for="email">Email</label><input id="email" type="email" required></div><div class="field"><label for="phone">Phone / WhatsApp</label><input id="phone" type="tel" required></div><div class="field"><label for="notes">Notes</label><input id="notes" placeholder="Group, fishing trip, special request"></div><input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"><div class="g-recaptcha" data-sitekey="6LdxbP0sAAAAALJ9ljU25fXDJF1jBd_NfU1yQsbb" style="margin-top:1rem"></div><button class="button" type="submit">Request booking</button></form><div id="message" class="message"></div></aside>
 </div></main>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
 if(typeof emailjs!=='undefined') emailjs.init('lhCBef3DtFxpVOyuC');
 /* Not connected yet — Sheets/live-availability backend comes later.
@@ -96,6 +97,8 @@ function showMessage(text,ok){
 $('bookingForm').addEventListener('submit',e=>{
   e.preventDefault();
   if($('company').value)return; // honeypot filled = bot
+  if(typeof grecaptcha==='undefined'){showMessage('Could not load the spam-check widget. Please email amangwane@kosimouth.co.za or WhatsApp +27 82 909 3113 to complete your booking.',false);return}
+  if(!grecaptcha.getResponse()){showMessage('Please confirm you are not a robot (the checkbox above Request booking) before submitting.',false);return}
   if(!validate())return;
   if(!selectedUnit()){showMessage('Please select a tent from the list above before requesting a booking.',false);return}
   if(typeof emailjs==='undefined'){showMessage('Could not load the booking form. Please email amangwane@kosimouth.co.za or WhatsApp +27 82 909 3113 to complete your booking.',false);return}
@@ -116,9 +119,11 @@ $('bookingForm').addEventListener('submit',e=>{
   }).then(()=>{
     showMessage(`Thanks! Your request for ${u.name} (${$('checkin').value} to ${$('checkout').value}) has been sent. Deposit due: ${money(deposit)} (50% of ${money(total)}) within 48 hours to hold the tent. We'll reply within 24 hours to confirm and send payment details.`,true);
     e.target.reset();
+    if(typeof grecaptcha!=='undefined') grecaptcha.reset();
     render();
   }).catch(err=>{
     console.error('EmailJS send failed:',err);
+    if(typeof grecaptcha!=='undefined') grecaptcha.reset();
     showMessage('Could not send your request. Please email amangwane@kosimouth.co.za or WhatsApp +27 82 909 3113 to complete your booking.',false);
   }).finally(()=>{
     btn.disabled=false;btn.textContent='Request booking';
